@@ -20,41 +20,6 @@ var bio = {
 
 
 
-var education = {
-	"schools": [
-		{
-			"name": "James Madison University",
-			"location": "Harrisonburg, VA",
-			"degree": "Non-degree post-bac",
-			"majors": ["Biology"],
-			"dates": 2010,
-			"url": "http://www.jmu.edu/"
-		},
-		{
-			"name": "University of Virginia",
-			"location": "Charlottesville, VA, USA",
-			"degree": "Bachelor of Arts",
-			"majors": ["History"],
-			"dates": 2007,
-			"url": "http://www.virginia.edu/"
-		}
-  	],
-	"onlineCourses": [
-		{
-			"title": "JavaScript Syntax",
-			"school": "Udacity",
-			"date": 2014,
-			"url": "https://www.udacity.com/course/ud804"
-		},
-		{
-			"title": "Interactive Python Programming",
-			"school": "Coursera",
-			"date": 2013,
-			"url": "https://www.coursera.org/course/interactivepython"
-		}
-	]
-};
-
 
 
 
@@ -87,7 +52,7 @@ var work = {
 		{
 			"employer": "Yellowstone Raft Company",
 			"title": "Whitewater raft guide",
-			"location": "Gardiner, MT",
+			"location": "Gardiner, MT, USA",
 			"dates": "May 2011 - September 2011",
 			"description": "Guided class IV rafts under the Big Sky.",
 			"url": "http://www.yellowstoneraft.com"
@@ -123,3 +88,42 @@ var projects = {
 		}
   	]
 }; // / projects object
+
+
+
+
+
+var education = {
+	"schools": [
+		{
+			"name": "James Madison University",
+			"location": "Harrisonburg, VA, USA",
+			"degree": "Non-degree post-baccalaureate",
+			"majors": ["Biology"],
+			"dates": 2010,
+			"url": "http://www.jmu.edu/"
+		},
+		{
+			"name": "University of Virginia",
+			"location": "Charlottesville, VA, USA",
+			"degree": "Bachelor of Arts",
+			"majors": ["History"],
+			"dates": 2007,
+			"url": "http://www.virginia.edu/"
+		}
+  	],
+	"onlineCourses": [
+		{
+			"title": "JavaScript Syntax",
+			"school": "Udacity",
+			"date": 2014,
+			"url": "https://www.udacity.com/course/ud804"
+		},
+		{
+			"title": "Interactive Python Programming",
+			"school": "Coursera",
+			"date": 2013,
+			"url": "https://www.coursera.org/course/interactivepython"
+		}
+	]
+};

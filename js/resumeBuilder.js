@@ -1,4 +1,17 @@
 // This function formats and displays biographic info from 'bio' object.
+
+bio.skills.display = function() {
+	if (this.length > 0) {
+		$('header').append(HTMLskillsStart);
+
+		for (var i = 0; i <  this.length; i++) {
+			formattedSkill = HTMLskills.replace("%data%", this[i]);
+			$('#skills-list').append(formattedSkill);
+		}
+	}
+};
+
+
 bio.display = function() {
 	var formattedName = HTMLheaderName.replace("%data-name%", this.name);
 	var formattedRole = HTMLheaderRole.replace("%data-role%", this.role);
@@ -10,18 +23,9 @@ bio.display = function() {
 								+ formattedWelcomeMsg
 								+ formattedBioPic
 								);
-	$('header').prepend(formattedHeaderContent)
-};
+	$('header').prepend(formattedHeaderContent);
 
-bio.skills.display = function() {
-	if (this.length > 0) {
-		$('header').append(HTMLskillsStart);
-
-		for (var i = 0; i <  this.length; i++) {
-			formattedSkill = HTMLskills.replace("%data%", this[i]);
-			$('#skills-list').append(formattedSkill);
-		}
-	}
+	this.skills.display()
 };
 
 
@@ -42,17 +46,17 @@ bio.contacts.display = function() {
 
 work.jobs.display = function() {
 	if (this.length > 0) {
-		$( '#workDiv' ).append(HTMLworkStart);
+		$('#workSection').append(HTMLworkStart);
 		for (var i = 0; i < this.length; i ++) {
     //For some reason for (i in this) {
     //displays an extra, "undefined undefined" entry.
     // http://stackoverflow.com/questions/3010840/loop-through-array-in-javascript
     
-		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", this[i].employer);
-		var formattedWorkTitle = HTMLworkTitle.replace("%data%", this[i].title);
-		var formattedWorkLocation = HTMLworkLocation.replace("%data%", this[i].location);
-		var formattedWorkDates = HTMLworkDates.replace("%data%", this[i].dates);
-		var formattedWorkDescription = HTMLworkDescription.replace("%data%", this[i].description);
+		var formattedWorkEmployer = HTMLworkEmployer.replace("%data-job%", this[i].employer);
+		var formattedWorkTitle = HTMLworkTitle.replace("%data-title%", this[i].title);
+		var formattedWorkLocation = HTMLworkLocation.replace("%data-loc%", this[i].location);
+		var formattedWorkDates = HTMLworkDates.replace("%data-dates%", this[i].dates);
+		var formattedWorkDescription = HTMLworkDescription.replace("%data-desc%", this[i].description);
 		var formattedWorkEntry = formattedWorkEmployer
                           	   + formattedWorkTitle
                         	   + formattedWorkLocation
@@ -62,11 +66,14 @@ work.jobs.display = function() {
 		}
 	}
 };
+work.display = function(){this.jobs.display()};
+
+
 
 projects.projects.display = function (){
 	if (this.length > 0) {
 		for (var i = 0; i < this.length; i++) {
-			$('#projectsDiv').append(HTMLprojectStart); 
+			$('#projSection').append(HTMLprojectStart); 
 			
 			var formattedProjectEntry = HTMLprojectTitle.replace("%data%", this[i].title)
                                   	  + HTMLprojectDates.replace("%data%", this[i].dates)
@@ -84,21 +91,22 @@ projects.projects.display = function (){
 		}
 	}
 };
+projects.display = function(){this.projects.display()};
+
 
 
 education.schools.display = function (){
 	if (this.length > 0) {
-		$('#educationDiv').append(HTMLschoolHeadDiv);
+		$('#eduSection').append(HTMLschoolHeadDiv);
 		for (var i = 0; i < this.length; i++) {
 			$('#school-list').append(HTMLschoolStart);
 			
 			var formattedSchoolName = HTMLschoolName.replace("%data-url%", this[i].url).replace("%data-name%", this[i].name);
-			var formattedSchoolDegree = HTMLschoolDegree.replace("%data-degree%", this[i].degree);
+			var formattedSchoolDegreeMajor = HTMLschoolDegreeMajor.replace("%data-degree%", this[i].degree).replace("%data-major%", this[i].majors[0]);
+			var formattedSchoolLocation = HTMLschoolLocation.replace("%data-loc%", this[i].location);
 			var formattedSchoolDates = HTMLschoolDates.replace("%data-date%", this[i].dates);
-			var formattedSchoolLocation = HTMLschoolLocation.replace("%data-location%", this[i].location);
-			var formattedSchoolMajor = HTMLschoolMajor.replace("%data-major%", this[i].majors[0]);
 			// Combine all formatted HTML code into one school entry object
-			var formattedSchoolEntry = formattedSchoolName + formattedSchoolDegree + formattedSchoolDates + formattedSchoolLocation + formattedSchoolMajor;
+			var formattedSchoolEntry = formattedSchoolName + formattedSchoolDegreeMajor + formattedSchoolLocation + formattedSchoolDates;
 			// Append i'th entry object after previous entry
 			$('.education-entry:last').append(formattedSchoolEntry)
 		}
@@ -107,7 +115,7 @@ education.schools.display = function (){
 
 education.onlineCourses.display = function (){
 	if (this.length > 0) {
-		$('#educationDiv').append(HTMLonlineHeadDiv);
+		$('#eduSection').append(HTMLonlineHeadDiv);
 		for (var i = 0; i < this.length; i++) {
 			$('#online-list').append(HTMLonlineStart);
 
@@ -116,14 +124,13 @@ education.onlineCourses.display = function (){
 			var formattedOnlineDates = HTMLonlineDates.replace("%data-date%", this[i].date);
 			// Combine all formatted HTML code into one school entry object
 			var formattedOnlineEntry = formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates;
+			// Append i'th entry object after previous entry
 			$('.education-entry:last').append(formattedOnlineEntry);
 		}
 	}
 };
 
-
-
-
+// Further encapsulate education display functionality
 education.display = function() {
 	this.schools.display();
 	this.onlineCourses.display()
@@ -133,14 +140,12 @@ education.display = function() {
 
 bio.display();
 //bio.contacts.display();
-bio.skills.display();
-work.jobs.display();
-projects.projects.display();
+work.display();
+projects.display();
 education.display();
 
 
-//$("main").append(internationalizeButton);
-//$("#mapDiv").append(googleMap);
+//$("#mapSection").append(googleMap);
 
 
 /*

@@ -22,30 +22,26 @@
       <ul id="topContacts" class='flex-box'></ul>
     </header>
 
-    <div style='clear: both;'></div>
+    <section id="workSection">
+      <h2>Work and Volunteering</h2>
+    </section>
     
-    <div id="workDiv" class='gray'>
-      <h2>Work Experience</h2>
-    </div>
-    
-    <div id="projectsDiv">
+    <section id="projSection">
       <h2>Projects</h2>
-    </div>
+    </section>
     
-    <div id="educationDiv" class='gray'>
+    <section id="eduSection">
       <h2>Education</h2>
-    </div>
+    </section>
     
-    <div id="mapDiv">
+    <section id="mapSection">
       <h2>Where I've Lived and Worked</h2>
-    </div>
+    </section>
     
-    <div id="letsConnect" class='dark-gray'>
+    <footer id="letsConnect" class='dark-gray'>
       <h2 class='orange center-text'>Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
+      <ul id="footerContacts" class="flex-box"></ul>
+  </footer>
 
   <script src="js/resumeBuilder.js"></script>
 
@@ -83,7 +79,7 @@
       document.getElementById('letsConnect').style.display = 'none';
     }
     if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
+      document.getElementById('mapSection').style.display = 'none';
     }
   </script>
 </body>

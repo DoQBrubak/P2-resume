@@ -23,11 +23,11 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkEmployer = '<a href="#">%data-job%';
+var HTMLworkTitle = ' - %data-title%</a>';
+var HTMLworkDates = '<div class="date-text">%data-dates%</div>';
+var HTMLworkLocation = '<div class="location-text">%data-loc%</div>';
+var HTMLworkDescription = '<p><br>%data-desc%</p>';
 
 
 
@@ -41,24 +41,23 @@ var HTMLprojectImage = '<img src="%data%">';
 
 
 
-var HTMLschoolHeadDiv = '<div id="school-div"><h3>Schools Attended</h3><ul id="school-list"></ul></div>'
+var HTMLschoolHeadDiv = '<h3>Schools Attended</h3><ul id="school-list"></ul>'
 var HTMLschoolStart = '<li class="education-entry"></li>';
-var HTMLschoolName = '<a href="%data-url%">%data-name%';
-var HTMLschoolDegree = ' -- %data-degree%</a>';
-var HTMLschoolDates = '<div class="date-text">%data-date%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data-location%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data-major%</em>';
+
+var HTMLschoolName = '<h4><a href="%data-url%" target="_blank">%data-name%</a>';
+var HTMLschoolDegreeMajor = ' -- %data-degree% -- <em>%data-major% major</em></h4>';
+var HTMLschoolLocation = '<div class="detail-text">%data-loc%</div>';
+var HTMLschoolDates = '<div class="detail-text">Completed: %data-date%</div>';
 
 
-var HTMLonlineHeadDiv = '<div id="online-div"><h3>Online Classes</h3><ul id="online-list"></ul></div>'
+
+
+var HTMLonlineHeadDiv = '<h3>Online Classes</h3><ul id="online-list"></ul>'
 var HTMLonlineStart = '<li class="education-entry"></li>';
-var HTMLonlineTitle = '<div><a href="data-url">%data-title%';
-var HTMLonlineSchool = ' - %data-school%</a></div>';
-var HTMLonlineDates = '<div class="date-text float-none">%data-date%</div>';
 
-
-var HTMLonlineURL = '<br><a href="%data-url%">%data-school%</a>';
-
+var HTMLonlineTitle = '<h4><a href="%data-url%" target="_blank">%data-title%</a>';
+var HTMLonlineSchool = ' -- %data-school%</h4>';
+var HTMLonlineDates = '<div class="detail-text float-none">%data-date%</div>';
 
 
 
