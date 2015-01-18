@@ -23,20 +23,20 @@ var bio = {
 var education = {
 	"schools": [
 		{
-			"name": "University of Virginia",
-			"location": "Charlottesville, VA, USA",
-			"degree": "Bachelor of Arts",
-			"majors": ["History"],
-			"dates": 2007,
-			"url": "http://www.virginia.edu/"
-		},
-		{
 			"name": "James Madison University",
 			"location": "Harrisonburg, VA",
 			"degree": "Non-degree post-bac",
 			"majors": ["Biology"],
 			"dates": 2010,
 			"url": "http://www.jmu.edu/"
+		},
+		{
+			"name": "University of Virginia",
+			"location": "Charlottesville, VA, USA",
+			"degree": "Bachelor of Arts",
+			"majors": ["History"],
+			"dates": 2007,
+			"url": "http://www.virginia.edu/"
 		}
   	],
 	"onlineCourses": [
