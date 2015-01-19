@@ -2,53 +2,31 @@
   padding:0;
   margin:0;
   font-family: 'Roboto', sans-serif;
-  background-color: #B8B8B8;
-  border: 1px solid blue;
+  background-color: #F1E5C7; /* library cream */
+  -border: 1px solid blue;
 }
 
-.clearfix {
-  overflow: auto;
+a {
+  color: #F59A2C; /* UVA orange*/
+  text-decoration: none;
+  margin-top: 10px;
 }
 
-.education-entry, .work-entry, .project-entry {
+@media only screen and (min-width: 1024){
+  body {
+    width: 1024px;
+  }
+}
+
+header, footer {
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 1%;
-  display: block;
-}
-
-.block {
-  display: block;
 }
 
 h1 {
-  font-size: 40px;
-  color: #F5A623;
+  font-size: 36px;
   line-height: 48px;
   display: inline;
-}
-
-h2 {
-  font-weight: bold;
-  font-size: 24px;
-  color: #999999;
-  line-height: 29px;
-  padding: 10px;
-}
-
-h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: #000000;
-  line-height: 22px;
-}
-
-h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4A4A4A;
-  line-height: 17px;
-  padding:10px;
 }
 
 h2, h3 {
@@ -57,67 +35,115 @@ h2, h3 {
   padding-right: 5%;
 }
 
-
-.detail-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: none;
+h2 {
+  border-top: #7AC143 solid 4px;
+  color: #0D3268; /*UVA navy = color-1*/
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
 }
 
-.location-text {
+h3 {
   font-style: italic;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 17px;
+  padding:10px;
+  padding-left:0px;
+  border-top: #CBB677 solid 3px;
+}
+
+img {
+  padding: 5px;
+}
+
+select {
   font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: left;
 }
 
 p {
-  font-size: 14px;
-  color: #333333;
-  line-height: 21px;
+  color:;
+  font-size: 16px;
+  line-height: 16px;
 }
 
-a {
-  color: #1199C3;
-  text-decoration: none;
-  margin-top: 10px;
+ul {
+  list-style-type: none;
 }
 
-.welcome-message {
+
+
+.bio-col-left, .bio-col-center, .bio-col-right {
+  max-height: 240px;
+}
+
+.bio-col-left {
+  float: left;
+  height:235px;
+  width:240px;
+}
+
+.bio-col-center {
+  float: left;
+  height: 100px;
+  width: 350px;
+}
+
+.bio-col-right {
+  float: left;
+  width: 300px;
+}
+
+.bio-msg {
   font-style: italic;
   font-size: 18px;
   color: #F3F3F3;
   line-height: 28px;
 }
 
-#skillsH3 {
-  color: #F5AE23;
-  display: none;
+.center-content {
+  padding-top: 2.5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 2.5%
 }
 
-.orange {
-  background-color: #F5AE23;
+.clearfix {
+  overflow: auto;
 }
 
-.orange-text {
-  color: #F5AE23;
-}
+.color-1{color:#0D3268;} /*UVA navy*/
+.color-2{color:#CBB677;} /*JMU gold*/
+.color-3{color:#7AC143;} /*library green*/
+.color-4{color:#F59A2C;} /*UVA orange*/
+.color-5{}
+.color-6{}
+.color-7{color:#F1E5C7;} /*library cream*/
 
-.white-text {
-  font-weight: bold;
+.contact-entry {
   color: #FFFFFF;
+  font-weight: bold;
+  text-align: right;
 }
 
-.dark-gray {
-  background-color: #4A4A4A;
+.detail-text {
+  color: #CBB677;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 16px;
+  padding-left: 2%;
 }
 
-/* TODO: Replace with image later */
-#header {
-  background-color: #484848;
+.education-entry, .work-entry, .project-entry {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 1%;
+  display: block;
 }
 
 .flex-box {
@@ -129,70 +155,18 @@ a {
   padding: 10px;
 }
 
-.center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
+.text-bold {
+  font-weight:bold;
 }
 
-ul {
-  list-style-type: none;
-}
 
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
+
+
+
+
+#skillsH3 {
+  color: #F5AE23;
   display: none;
-}
-
-img {
-  padding: 10px;
-}
-
-/* Bar chart stuff */
-.chart div {
-  font: 10px sans-serif;
-  background-color: #4A4A4A;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  height: 12px;
-  color: white;
-  display: inline-block;
-}
-
-span {
-  padding: 5px;
-}
-
-#letsConnect {
-  text-align: center;
-}
-
-@media only screen and (max-width: 1024px) {
-  #letsConnect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #letsConnect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
 }
 
 #map {
@@ -208,9 +182,33 @@ span {
   padding-bottom: 5%;
 }
 
+@media only screen and (max-width: 1024px) {
+  #letsConnect {
+    margin-top: 5%;
+  }
+}
+
+@media only screen and (max-width:900px) {
+  --.bio-pic {
+    width: 175px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #letsConnect {
+    margin-top: 10%;
+  }
+  --.bio-pic {
+    width: 150px;
+  }
+  .welcome-message {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 750px) {
   #skillsH3,
-  .biopic {
+  .bio-pic {
     display: block;
   }
 }

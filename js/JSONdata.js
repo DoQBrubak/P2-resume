@@ -1,20 +1,30 @@
 var bio = {
-	"name": "Quintin Brubaker",
-	"role": "Web Developer",
-	"welcomeMessage": "Welcome to my humble resume.",
-	"biopic": "./images/biopic2.jpg",
+	"name": "D. Quintin Brubaker",
+	"role": "My domains of experience include",
+	
+	"welcomeMessage": "Distinguit quid barbam?",
+	"biopic": "./images/biopic.jpg",
 	"skills": [
-		"Paramedicine",
-		"Front-end programming",
-		"Drinking coffee",
-		"Yo hablo espanol"
+		"Web Developer",
+		"Paramedic",
+		"River Guide",
+		"Bus Driver",
+		"Spanish Speaker"
 	],
 	"contacts": {
+		"email": "Quintin.Brubaker@Gmail.com",
+		"location": "Winchester, VA, USA",
 		"mobile": "540-247-9940",
-		"email": "quintin.brubaker@gmail.com",
 		"github": "DoQBrubak",
-		"twitter": "@me_DQB",
-		"location": "Winchester, VA, USA"
+		"twitter": "@me_DQB"
+	},
+	"social": {
+		"facebook": "https://www.facebook.com/quintin.brubaker/",
+		"github": "https://github.com/DoQBrubak/",
+		"googleplus": "https://plus.google.com/114299478507949690411/",
+		"linkedin": "https://www.linkedin.com/profile/view?id=201488195/",
+		"twitter": "https://twitter.com/me_dqb/",
+		"wordpress": "https://dqbrva.wordpress.com/"
 	}
 };
 
@@ -65,7 +75,7 @@ var work = {
 var projects = {
 	"projects": [
 		{
-			"title": "Zip Navigator",
+			"title": "WhatZipNel",
 			"dates": "2014",
 			"description": "A simple JS tool for finding the zipcode of a 911 call in Nelson County.",
 			"images": [
@@ -76,7 +86,7 @@ var projects = {
 			"url": "https://github.com/DoQBrubak/nelCoZipNav"
 		},
 		{
-			"title": "wtg Trails",
+			"title": "Wintergreen Trailfinder",
 			"dates": "2014",
 			"description": "A simple JS tool for navigating Wintergreen's trails.",
 			"images": [

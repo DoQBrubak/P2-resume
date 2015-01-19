@@ -1,68 +1,66 @@
-// This function formats and displays biographic info from 'bio' object.
 
-bio.skills.display = function() {
-	if (this.length > 0) {
-		$('header').append(HTMLskillsStart);
-
-		for (var i = 0; i <  this.length; i++) {
-			formattedSkill = HTMLskills.replace("%data%", this[i]);
-			$('#skills-list').append(formattedSkill);
-		}
-	}
-};
-
-
-bio.display = function() {
-	var formattedName = HTMLheaderName.replace("%data-name%", this.name);
-	var formattedRole = HTMLheaderRole.replace("%data-role%", this.role);
-	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data-msg%", this.welcomeMessage);
-	var formattedBioPic = HTMLbioPic.replace("%data-pic%", this.biopic);
-
-	var formattedHeaderContent = (formattedName
-								+ formattedRole
-								+ formattedWelcomeMsg
-								+ formattedBioPic
-								);
-	$('header').prepend(formattedHeaderContent);
-
-	this.skills.display()
-};
-
-
-/*
 bio.contacts.display = function() {
-	/* I referenced StackOverflow regarding finding object length:
-	http://stackoverflow.com/questions/5223/length-of-a-javascript-object-that-is-associative-array
-	
+	// I referenced StackOverflow regarding finding object length: http://stackoverflow.com/questions/5223/length-of-a-javascript-object-that-is-associative-array
 	var keys = Object.keys(this);
 	for (var i = 0; i <  keys.length - 1; i++) {
 		var contactEntryType = keys[i];
 		var contactEntryValue = this[keys[i]];
-		formattedContactEntryGeneric = HTMLcontactEntryGeneric.replace("%contact-type%", contactEntryType + ":").replace("%contact-data%", contactEntryValue);
-		$( '#contactBoxTop' ).append(formattedContactEntryGeneric)
+		formattedContactEntry = HTMLcontactEntry.replace("%data-type%", contactEntryType + ":").replace("%data-value%", contactEntryValue);
+		$('#contactList').append(formattedContactEntry)
 	}
 };
-*/
+
+bio.skills.populate = function() {
+	console.log(this)
+	for (var i = 0; i < this.length; i++) {
+		formattedSkillOption = HTMLskillOption.replace("%data-skill%", this[i]).replace("%data-name%", this[i]);
+		$('#skillSelector').append(formattedSkillOption);
+		console.log(formattedSkillOption)
+	}
+};
+
+// Function definition to display everything from the JSON "bio" object
+bio.display = function() {
+	// Establish the header structure.
+	$('header').prepend(HTMLbioGrid);
+	// Insert an image in the header left column. It will shrink/disappear responsively.
+	var formattedBioPic = HTMLbioPic.replace("%data-img%", this.biopic);
+	$('.bio-col-left').append(formattedBioPic)
+	// Insert the main column name and the (empty) skill selector.
+	var formattedName = HTMLheaderName.replace("%data-name%", this.name);
+	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data-msg%", this.welcomeMessage);
+	var formattedHeaderContent = formattedName + formattedWelcomeMsg + HTMLroleSelect;
+	$('.bio-col-center').append(formattedHeaderContent);
+	// Populate the skill selector.
+	this.skills.populate();
+	// Insert the contact details via an encapsulated function
+	this.contacts.display()
+};
+
+
+
+
+
+
+
+
 
 work.jobs.display = function() {
 	if (this.length > 0) {
-		$('#workSection').append(HTMLworkStart);
 		for (var i = 0; i < this.length; i ++) {
+    	$('#workSection').append(HTMLworkStart);
     //For some reason for (i in this) {
     //displays an extra, "undefined undefined" entry.
     // http://stackoverflow.com/questions/3010840/loop-through-array-in-javascript
-    
-		var formattedWorkEmployer = HTMLworkEmployer.replace("%data-job%", this[i].employer);
+		var formattedWorkEmployer = HTMLworkEmployer.replace("%data-job%", this[i].employer).replace("%data-url%", this[i].url);
 		var formattedWorkTitle = HTMLworkTitle.replace("%data-title%", this[i].title);
 		var formattedWorkLocation = HTMLworkLocation.replace("%data-loc%", this[i].location);
 		var formattedWorkDates = HTMLworkDates.replace("%data-dates%", this[i].dates);
-		var formattedWorkDescription = HTMLworkDescription.replace("%data-desc%", this[i].description);
-		var formattedWorkEntry = formattedWorkEmployer
-                          	   + formattedWorkTitle
-                        	   + formattedWorkLocation
-                           	   + formattedWorkDates
-                           	   + formattedWorkDescription;
-		$( '.work-entry:last' ).append(formattedWorkEntry)
+		var formattedWorkDesc = HTMLworkDesc.replace("%data-desc%", this[i].description);
+		// Combine all formatted HTML code into one work entry object
+		var formattedWorkEntry = formattedWorkEmployer + formattedWorkTitle + formattedWorkDates + formattedWorkLocation + formattedWorkDesc;
+		// Append i'th work entry object after previous entry
+		$('.work-entry:last').append(formattedWorkEntry)
 		}
 	}
 };
@@ -70,24 +68,31 @@ work.display = function(){this.jobs.display()};
 
 
 
+
+
 projects.projects.display = function (){
 	if (this.length > 0) {
+		$('#projSection').append(HTMLprojectHeading);
+
 		for (var i = 0; i < this.length; i++) {
-			$('#projSection').append(HTMLprojectStart); 
+			$('#projList').append(HTMLprojectStart); 
 			
-			var formattedProjectEntry = HTMLprojectTitle.replace("%data%", this[i].title)
-                                  	  + HTMLprojectDates.replace("%data%", this[i].dates)
-                                	  + HTMLprojectDescription.replace("%data%", this[i].description);
+			var formattedProjectTitle = HTMLprojectTitle.replace("%data-name%", this[i].title);
+			var formattedProjectDates = HTMLprojectDates.replace("%data-date%", this[i].dates);
+			var formattedProjectDesc = HTMLprojectDesc.replace("%data-desc%", this[i].description);
+			// Combine all formatted HTML code into one project entry object
+			var formattedProjectEntry = formattedProjectTitle + formattedProjectDates + formattedProjectDesc;
+      		
 
       		var formattedImageLinks = new String();
       		
       		if (this[i].images.length > 0) {
         		for (var j = 0; j < this[i].images.length; j++) {
-          			formattedImageLinks += HTMLprojectImage.replace("%data%", this[i].images[j])
+          			formattedImageLinks += HTMLprojectImage.replace("%data-img%", this[i].images[j])
         		}
      		};
 			formattedProjectEntry += formattedImageLinks;
-			$('.project-entry:last').append(formattedProjectEntry)
+			$( '.project-entry:last' ).append(formattedProjectEntry)
 		}
 	}
 };
@@ -95,11 +100,14 @@ projects.display = function(){this.projects.display()};
 
 
 
+
+
+
 education.schools.display = function (){
 	if (this.length > 0) {
-		$('#eduSection').append(HTMLschoolHeadDiv);
+		$('#eduSection').append(HTMLschoolHeading);
 		for (var i = 0; i < this.length; i++) {
-			$('#school-list').append(HTMLschoolStart);
+			$('#schoolList').append(HTMLschoolStart);
 			
 			var formattedSchoolName = HTMLschoolName.replace("%data-url%", this[i].url).replace("%data-name%", this[i].name);
 			var formattedSchoolDegreeMajor = HTMLschoolDegreeMajor.replace("%data-degree%", this[i].degree).replace("%data-major%", this[i].majors[0]);
@@ -115,9 +123,9 @@ education.schools.display = function (){
 
 education.onlineCourses.display = function (){
 	if (this.length > 0) {
-		$('#eduSection').append(HTMLonlineHeadDiv);
+		$('#eduSection').append(HTMLonlineHeading);
 		for (var i = 0; i < this.length; i++) {
-			$('#online-list').append(HTMLonlineStart);
+			$('#onlineList').append(HTMLonlineStart);
 
 			var formattedOnlineTitle = HTMLonlineTitle.replace("%data-title%", this[i].title).replace("%data-url%", this[i].url);
 			var formattedOnlineSchool = HTMLonlineSchool.replace("%data-school%", this[i].school);
@@ -129,7 +137,6 @@ education.onlineCourses.display = function (){
 		}
 	}
 };
-
 // Further encapsulate education display functionality
 education.display = function() {
 	this.schools.display();
@@ -138,8 +145,10 @@ education.display = function() {
 
 
 
+
+
+// Function calls to display each JSON object. 
 bio.display();
-//bio.contacts.display();
 work.display();
 projects.display();
 education.display();

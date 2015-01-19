@@ -1,63 +1,75 @@
-
-var HTMLheaderName = '<h1 id="name">%data-name%</h1>';
-var HTMLheaderRole = '<span>%data-role%</span><hr/>';
-var HTMLbioPic = '<img src="%data-pic%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
-
-
-var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills-list" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLbioGrid = '<div class="bio-col-left flex-box"></div><div class="bio-col-center flex-box"></div><div class="bio-col-right flex-box"><ul id="contactList"></ul></div>'
 
 
 
+var HTMLbioPic = '<img src="%data-img%" class="bio-pic">';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+
+
+var HTMLheaderName = '<h1 id="name" class="color-1">%data-name%</h1>';
+var HTMLwelcomeMsg = '<p class="bio-msg color-3">%data-msg% ';
+var HTMLroleSelect = '<select id="skillSelector"></select></p>'
+var HTMLskillOption = '<option value="%data-skill%">%data-name%</option>'
+
+
+var HTMLcontactEntry = '<li><span class="color-2">%data-type%</span><span class="color-1 text-bold">%data-value%</span></li>';
 
 
 
 
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data-job%';
-var HTMLworkTitle = ' - %data-title%</a>';
-var HTMLworkDates = '<div class="date-text">%data-dates%</div>';
-var HTMLworkLocation = '<div class="location-text">%data-loc%</div>';
-var HTMLworkDescription = '<p><br>%data-desc%</p>';
 
 
 
 
-var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+
+var HTMLworkHeading ='<ul id="workList"></ul>'
+
+var HTMLworkStart = '<li class="work-entry"></li>';
+var HTMLworkEmployer = '<h4><a href="%data-url%" target="_blank">%data-job%</a>';
+var HTMLworkTitle = ' -- %data-title%</h4>';
+var HTMLworkLocation = '<div class="detail-text">%data-loc%</div>';
+var HTMLworkDates = '<div class="detail-text">%data-dates%</div>';
+var HTMLworkDesc = '<p><br>%data-desc%</p>';
 
 
 
 
-var HTMLschoolHeadDiv = '<h3>Schools Attended</h3><ul id="school-list"></ul>'
+
+
+
+var HTMLprojectHeading = '<ul id="projList"></ul>';
+
+var HTMLprojectStart = '<li class="project-entry"></li>';
+var HTMLprojectTitle = '<h4><a href="data-url">%data-name%</a></h4>';
+var HTMLprojectDates = '<div class="detail-text">%data-date%</div>';
+var HTMLprojectDesc = '<p><br>%data-desc%</p>';
+var HTMLprojectImage = '<img src="%data-img%" class="proj-pic" alt="An project screenshot">';
+
+
+
+
+
+
+var HTMLschoolHeading = '<h3>Schools Attended</h3><ul id="schoolList"></ul>'
+
 var HTMLschoolStart = '<li class="education-entry"></li>';
-
 var HTMLschoolName = '<h4><a href="%data-url%" target="_blank">%data-name%</a>';
 var HTMLschoolDegreeMajor = ' -- %data-degree% -- <em>%data-major% major</em></h4>';
 var HTMLschoolLocation = '<div class="detail-text">%data-loc%</div>';
-var HTMLschoolDates = '<div class="detail-text">Completed: %data-date%</div>';
+var HTMLschoolDates = '<div class="detail-text">Completed -- %data-date%</div>';
 
 
 
 
-var HTMLonlineHeadDiv = '<h3>Online Classes</h3><ul id="online-list"></ul>'
+
+
+
+var HTMLonlineHeading = '<h3>Online Classes</h3><ul id="onlineList"></ul>'
+
 var HTMLonlineStart = '<li class="education-entry"></li>';
-
 var HTMLonlineTitle = '<h4><a href="%data-url%" target="_blank">%data-title%</a>';
 var HTMLonlineSchool = ' -- %data-school%</h4>';
-var HTMLonlineDates = '<div class="detail-text float-none">%data-date%</div>';
+var HTMLonlineDates = '<div class="detail-text">Completed -- %data-date%</div>';
 
 
 

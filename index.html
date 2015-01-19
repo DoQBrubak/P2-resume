@@ -3,9 +3,6 @@
   <meta charset="utf-8">
   <title>Quintin Brubaker's Resume</title>
   <link href="css/style.css" rel="stylesheet">
-  <script src="js/jQuery.js"></script>
-  <script src="js/helper.js"></script>
-  <script src="js/JSONdata.js"></script>
 
   <!--
   Uncomment to add Google Map to your resume!
@@ -18,8 +15,8 @@
   
   <div id="main">
     
-    <header class="center-content clearfix">
-      <ul id="topContacts" class='flex-box'></ul>
+    <header class="clearfix">
+
     </header>
 
     <section id="workSection">
@@ -38,46 +35,19 @@
       <h2>Where I've Lived and Worked</h2>
     </section>
     
-    <footer id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Connect</h2>
+    <footer>
+      <h2>Let's Connect</h2>
       <ul id="footerContacts" class="flex-box"></ul>
-  </footer>
+    </footer>
 
+
+  <script src="js/jQuery.js"></script>
+  <script src="js/JSONdata.js"></script>
+  <script src="js/helper.js"></script>
   <script src="js/resumeBuilder.js"></script>
 
-  <script type="text/javascript">
-    // Notice how all of a sudden there's JavaScript inside this HTML
-    // document? You can write JavaScript between <script> tags. At the end of your
-    // JavaScript, don't forget the closing script tag with the slash (/).
-
-
-    // Also, this is a JavaScript style comment. You can comment in JavaScript with:
-
-    //   two slashes for all following characters on a single line, or
-
-    /*
-        an opening and closing set of slash asterisks for block comments.
-    */
-
-
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.display = 'none';
-    }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
-    }
-    if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
-    }
-    if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
-    }
-    if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
-    }
-    if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('letsConnect').style.display = 'none';
-    }
+  <script>
+   
     if(document.getElementById('map') === null) {
       document.getElementById('mapSection').style.display = 'none';
     }
