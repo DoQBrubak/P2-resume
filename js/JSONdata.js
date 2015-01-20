@@ -19,11 +19,12 @@ var bio = {
 		"twitter": "@me_DQB"
 	},
 	"social": {
-		"facebook": "https://www.facebook.com/quintin.brubaker/",
-		"github": "https://github.com/DoQBrubak/",
-		"googleplus": "https://plus.google.com/114299478507949690411/",
 		"linkedin": "https://www.linkedin.com/profile/view?id=201488195/",
+		"github": "https://github.com/DoQBrubak/",
+		"mail": "mailto:quintin.brubaker@gmail.com",
 		"twitter": "https://twitter.com/me_dqb/",
+		"googleplus": "https://plus.google.com/114299478507949690411/",
+		"facebook": "https://www.facebook.com/quintin.brubaker/",
 		"wordpress": "https://dqbrva.wordpress.com/"
 	}
 };
@@ -75,23 +76,31 @@ var work = {
 var projects = {
 	"projects": [
 		{
-			"title": "WhatZipNel",
-			"dates": "2014",
-			"description": "A simple JS tool for finding the zipcode of a 911 call in Nelson County.",
+			"title": "Pages for Udacity Nanodegree",
+			"dates": "2015",
+			"description": "Two web pages that employ fundamentals of HTML, CSS, and Bootstrap.",
 			"images": [
-				"./images/wtgTrails1.jpg",
-				"http://placehold.it/300x185",
-				"http://placehold.it/300x185"
+				"images/orange-mug.png",
+				"images/heroic-bug.jpg"
+				],
+			"url": "NA"	
+		},
+		{
+			"title": "Nelson Zipfinder",
+			"dates": "2014",
+			"description": "A JS-powered tool to help local EMS crews look up the viscinity of the address they are responding to.",
+			"images": [
+				"images/nel-zipfinder.png",
+				"images/197x148.gif"
 				],
 			"url": "https://github.com/DoQBrubak/nelCoZipNav"
 		},
 		{
 			"title": "Wintergreen Trailfinder",
 			"dates": "2014",
-			"description": "A simple JS tool for navigating Wintergreen's trails.",
+			"description": "A simple JS tool describing the trail network around Wintergreen resort and highlighting trouble areas in the event of extrication.",
 			"images": [
-				"./images/nelNavImage.jpg",
-				"http://placehold.it/300x185",
+				"images/wtg-trailfinder.png",
 				"http://placehold.it/300x185"
 			],
 			"url": "https://github.com/DoQBrubak"

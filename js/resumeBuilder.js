@@ -5,17 +5,25 @@ bio.contacts.display = function() {
 	for (var i = 0; i <  keys.length - 1; i++) {
 		var contactEntryType = keys[i];
 		var contactEntryValue = this[keys[i]];
-		formattedContactEntry = HTMLcontactEntry.replace("%data-type%", contactEntryType + ":").replace("%data-value%", contactEntryValue);
+		formattedContactEntry = HTMLcontactEntry.replace("%data-type%", contactEntryType + ": ").replace("%data-value%", contactEntryValue);
 		$('#contactList').append(formattedContactEntry)
 	}
 };
 
 bio.skills.populate = function() {
-	console.log(this)
 	for (var i = 0; i < this.length; i++) {
 		formattedSkillOption = HTMLskillOption.replace("%data-skill%", this[i]).replace("%data-name%", this[i]);
 		$('#skillSelector').append(formattedSkillOption);
-		console.log(formattedSkillOption)
+	}
+};
+
+bio.social.display = function() {
+var keys = Object.keys(this);
+	for (var i = 0; i <  keys.length - 1; i++) {
+		var socialIconValue = keys[i];
+		var socialIconURL = this[keys[i]];
+		formattedSocialIcon = HTMLsocialIcon.replace("%data-type%", socialIconValue).replace("%data-url%", socialIconURL);
+		$('#footerSocial').append(formattedSocialIcon)
 	}
 };
 
@@ -34,7 +42,8 @@ bio.display = function() {
 	// Populate the skill selector.
 	this.skills.populate();
 	// Insert the contact details via an encapsulated function
-	this.contacts.display()
+	this.contacts.display();
+	this.social.display()
 };
 
 
@@ -65,6 +74,7 @@ work.jobs.display = function() {
 	}
 };
 work.display = function(){this.jobs.display()};
+
 
 
 
@@ -108,7 +118,6 @@ education.schools.display = function (){
 		$('#eduSection').append(HTMLschoolHeading);
 		for (var i = 0; i < this.length; i++) {
 			$('#schoolList').append(HTMLschoolStart);
-			
 			var formattedSchoolName = HTMLschoolName.replace("%data-url%", this[i].url).replace("%data-name%", this[i].name);
 			var formattedSchoolDegreeMajor = HTMLschoolDegreeMajor.replace("%data-degree%", this[i].degree).replace("%data-major%", this[i].majors[0]);
 			var formattedSchoolLocation = HTMLschoolLocation.replace("%data-loc%", this[i].location);
@@ -126,7 +135,6 @@ education.onlineCourses.display = function (){
 		$('#eduSection').append(HTMLonlineHeading);
 		for (var i = 0; i < this.length; i++) {
 			$('#onlineList').append(HTMLonlineStart);
-
 			var formattedOnlineTitle = HTMLonlineTitle.replace("%data-title%", this[i].title).replace("%data-url%", this[i].url);
 			var formattedOnlineSchool = HTMLonlineSchool.replace("%data-school%", this[i].school);
 			var formattedOnlineDates = HTMLonlineDates.replace("%data-date%", this[i].date);
@@ -154,7 +162,11 @@ projects.display();
 education.display();
 
 
-//$("#mapSection").append(googleMap);
+$("#mapSection").append(HTMLmapDiv);
+
+
+
+
 
 
 /*

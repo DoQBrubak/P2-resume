@@ -3,11 +3,8 @@
   <meta charset="utf-8">
   <title>Quintin Brubaker's Resume</title>
   <link href="css/style.css" rel="stylesheet">
-
-  <!--
-  Uncomment to add Google Map to your resume!
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
-
+  <script src="js/jQuery.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <meta name="viewport" content="width=device-width">
 </head>
 
@@ -15,42 +12,39 @@
   
   <div id="main">
     
-    <header class="clearfix">
+    <header class="clearfix back-1">
 
     </header>
 
-    <section id="workSection">
+    <section id="workSection" class="back-2">
       <h2>Work and Volunteering</h2>
     </section>
     
-    <section id="projSection">
+    <section id="projSection" class="back-1">
       <h2>Projects</h2>
     </section>
     
-    <section id="eduSection">
+    <section id="eduSection" class="back-2">
       <h2>Education</h2>
     </section>
     
-    <section id="mapSection">
+    <section id="mapSection" class="back-1">
       <h2>Where I've Lived and Worked</h2>
     </section>
     
-    <footer>
-      <h2>Let's Connect</h2>
-      <ul id="footerContacts" class="flex-box"></ul>
+    <footer class="back-2">
+      <h2 class="pad-side-0">Let's Connect:</h2>
+        <ul id="footerSocial" style="padding-left:5%; padding-right:5%" class="flex-box">
+        </ul>
     </footer>
 
+  
 
-  <script src="js/jQuery.js"></script>
+  
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=API_KEY"></script> google version-->
   <script src="js/JSONdata.js"></script>
   <script src="js/helper.js"></script>
   <script src="js/resumeBuilder.js"></script>
 
-  <script>
-   
-    if(document.getElementById('map') === null) {
-      document.getElementById('mapSection').style.display = 'none';
-    }
-  </script>
 </body>
 </html>
