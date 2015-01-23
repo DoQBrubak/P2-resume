@@ -42,7 +42,7 @@ var HTMLprojectHeading = '<ul id="projList"></ul>';
 var HTMLprojectStart = '<li class="project-entry"></li>';
 var HTMLprojectTitle = '<h4><a href="data-url">%data-name%</a></h4>';
 var HTMLprojectDates = '<div class="detail-text">%data-date%</div>';
-var HTMLprojectDesc = '<p><br>%data-desc%</p>';
+var HTMLprojectDesc = '<p><br>%data-desc%</p><div class="pic-box flex-box"></div>';
 var HTMLprojectImage = '<img src="%data-img%" class="proj-pic" alt="A project screenshot">';
 
 

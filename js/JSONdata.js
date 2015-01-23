@@ -76,33 +76,30 @@ var work = {
 var projects = {
 	"projects": [
 		{
+			"title": "Wintergreen Fire and Rescue website redesign",
+			"dates": "2015",
+			"description": "The old website was Flash-dependent and mobile unfriendly. I remade it with Bootstrap and responsive design concepts in mind.",
+			"images":["images/wtg-website.png"]
+		},
+		{
 			"title": "Pages for Udacity Nanodegree",
 			"dates": "2015",
-			"description": "Two web pages that employ fundamentals of HTML, CSS, and Bootstrap.",
-			"images": [
-				"images/orange-mug.png",
-				"images/heroic-bug.jpg"
-				],
+			"description": "Two simple web page assignments that employ fundamentals of HTML, CSS, and Bootstrap.",
+			"images": ["images/orange-mug.png","images/heroic-bug.png"],
 			"url": "NA"	
 		},
 		{
 			"title": "Nelson Zipfinder",
 			"dates": "2014",
-			"description": "A JS-powered tool to help local EMS crews look up the viscinity of the address they are responding to.",
-			"images": [
-				"images/nel-zipfinder.png",
-				"images/197x148.gif"
-				],
+			"description": "A JavaScript-powered tool to help local EMS crews look up the viscinity of the address they are responding to.",
+			"images": ["images/nel-zipfinder.png","images/197x148.gif"],
 			"url": "https://github.com/DoQBrubak/nelCoZipNav"
 		},
 		{
 			"title": "Wintergreen Trailfinder",
 			"dates": "2014",
-			"description": "A simple JS tool describing the trail network around Wintergreen resort and highlighting trouble areas in the event of extrication.",
-			"images": [
-				"images/wtg-trailfinder.png",
-				"http://placehold.it/300x185"
-			],
+			"description": "A simple JS tool describing the trail network around Wintergreen Resort and highlighting trouble areas in the event of extrication.",
+			"images": ["images/wtg-trailfinder.png","http://placehold.it/300x185"],
 			"url": "https://github.com/DoQBrubak"
 		}
   	]

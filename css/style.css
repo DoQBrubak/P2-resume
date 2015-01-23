@@ -2,7 +2,7 @@
   font-family: 'Roboto', sans-serif;
   margin:0;
   padding:0;
-  border: 1px solid blue;
+  -border: 1px solid blue;
 }
 
 html, body, #mapDiv {height: 100%};
@@ -31,7 +31,7 @@ h2, h3 {
 }
 
 h2 {
-  border-top: #7AC143 solid 4px;
+  border-top: #7AC143 solid 5px;
   color: #0D3268; /*UVA navy = color-1*/
   font-size: 24px;
   font-weight: bold;
@@ -50,7 +50,7 @@ h4 {
   line-height: 17px;
   padding:10px;
   padding-left:0px;
-  border-top: #CBB677 solid 3px;
+  border-top: #CBB677 solid 4px;
 }
 
 img {
@@ -94,6 +94,10 @@ ul {
 .bio-col-right {
   float: left;
   width: 300px;
+}
+
+.bio-pic {
+  border: 3px solid #7AC143;
 }
 
 .bio-msg {
@@ -153,9 +157,14 @@ ul {
   padding: 10px;
 }
 
+.pic-box {
+  height: 220px;
+}
+
 .proj-pic {
-  width: 25%;
-  max-width: 300px;
+  border: 2px solid #CBB677;
+  height: 200px;
+  width: 250px;
 }
 
 .text-bold {

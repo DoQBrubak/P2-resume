@@ -88,21 +88,20 @@ projects.projects.display = function (){
 			$('#projList').append(HTMLprojectStart); 
 			
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data-name%", this[i].title);
-			var formattedProjectDates = HTMLprojectDates.replace("%data-date%", this[i].dates);
+			var formattedProjectDates = HTMLprojectDates.replace("%data-date%", "Completed -- " + this[i].dates);
 			var formattedProjectDesc = HTMLprojectDesc.replace("%data-desc%", this[i].description);
 			// Combine all formatted HTML code into one project entry object
 			var formattedProjectEntry = formattedProjectTitle + formattedProjectDates + formattedProjectDesc;
+			$('.project-entry:last').append(formattedProjectEntry)
       		
 
-      		var formattedImageLinks = new String();
       		
       		if (this[i].images.length > 0) {
         		for (var j = 0; j < this[i].images.length; j++) {
-          			formattedImageLinks += HTMLprojectImage.replace("%data-img%", this[i].images[j])
+          			formattedImageLink = HTMLprojectImage.replace("%data-img%", this[i].images[j])
+        			$('.pic-box:last').append(formattedImageLink)
         		}
-     		};
-			formattedProjectEntry += formattedImageLinks;
-			$( '.project-entry:last' ).append(formattedProjectEntry)
+     		}
 		}
 	}
 };
