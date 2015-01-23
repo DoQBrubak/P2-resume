@@ -154,13 +154,13 @@ education.display = function() {
 
 
 
+
+
 // Function calls to display each JSON object. 
 bio.display();
 work.display();
 projects.display();
 education.display();
-
-
 $("#mapSection").append(HTMLmapDiv);
 
 
