@@ -79,7 +79,7 @@ var work = {
 			"location": "Gardiner, MT, USA",
 			"dates": "May 2007 - September 2007",
 			"description": "Guided class IV rafts under the Big Sky.",
-			"url": "http://www.montantwhitewater.com",
+			"url": "http://www.montanawhitewater.com",
 			"type": "work-riv"
 		}
   	]
