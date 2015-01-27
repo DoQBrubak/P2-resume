@@ -4,13 +4,14 @@ var bio = {
 	
 	"welcomeMessage": "Distinguit quid barbam?",
 	"biopic": "./images/biopic.jpg",
-	"skills": [
-		"Web Developer",
-		"Paramedic",
-		"River Guide",
-		"Bus Driver",
-		"Spanish Speaker"
-	],
+	"skillCodes": {
+		"Multitalented": "work-all",
+		"Web Developer": "work-web",
+		"Paramedic": "work-ems",
+		"River Guide": "work-riv",
+		"Hospitality": "work-bev",
+		"Bus Driver": "work-bus"
+	},
 	"contacts": {
 		"email": "Quintin.Brubaker@Gmail.com",
 		"location": "Winchester, VA, USA",
@@ -42,7 +43,8 @@ var work = {
 			"location": "Lovingston, VA, USA",
 			"dates": "November 2012 - present",
 			"description": "Paramedic for 'county crew' serving rural Nelson County. Provided ALS emergency care including RSI, in a low-resources 911 system, with lengthy transport times.",
-			"url": "http://www.WtgFireResq.org"
+			"url": "http://www.WtgFireResq.org",
+			"type": "work-ems" 
 		},
 		{
 			"employer": "Richmond Ambulance Authority",
@@ -50,7 +52,8 @@ var work = {
 			"location": "Richmond, VA, USA",
 			"dates": "October 2011 - January 2013",
 			"description": "Paramedic for a busy high-performance EMS system.",
-			"url": "http://www.raaems.org"
+			"url": "http://www.raaems.org",
+			"type": "work-ems"
 		},
 		{
 			"employer": "Harrisonburg Rescue Squad",
@@ -58,7 +61,8 @@ var work = {
 			"location": "Harrisonburg, VA, USA",
 			"dates": "November 2011 - December 2013",
 			"description": "Paramedic for a busy station-based college town rescue squad.",
-			"url": "http://www.rescue40.org"
+			"url": "http://www.rescue40.org",
+			"type": "work-ems"
 		},
 		{
 			"employer": "Yellowstone Raft Company",
@@ -66,7 +70,17 @@ var work = {
 			"location": "Gardiner, MT, USA",
 			"dates": "May 2011 - September 2011",
 			"description": "Guided class IV rafts under the Big Sky.",
-			"url": "http://www.yellowstoneraft.com"
+			"url": "http://www.yellowstoneraft.com",
+			"type": "work-riv"
+		},
+		{
+			"employer": "Montana Whitewater",
+			"title": "Whitewater raft guide",
+			"location": "Gardiner, MT, USA",
+			"dates": "May 2007 - September 2007",
+			"description": "Guided class IV rafts under the Big Sky.",
+			"url": "http://www.montantwhitewater.com",
+			"type": "work-riv"
 		}
   	]
 }; // /work object
@@ -93,14 +107,14 @@ var projects = {
 			"dates": "2014",
 			"description": "A JavaScript-powered tool to help local EMS crews look up the viscinity of the address they are responding to.",
 			"images": ["images/nel-zipfinder.png","images/197x148.gif"],
-			"url": "https://github.com/DoQBrubak/nelCoZipNav"
+			"url": "https://www.dropbox.com/s/lhmku7akkf8pwb9/nelson-zipfinder-3b32618.zip"
 		},
 		{
 			"title": "Wintergreen Trailfinder",
 			"dates": "2014",
 			"description": "A simple JS tool describing the trail network around Wintergreen Resort and highlighting trouble areas in the event of extrication.",
 			"images": ["images/wtg-trailfinder.png","images/197x148.gif"],
-			"url": "https://github.com/DoQBrubak"
+			"url": "https://www.dropbox.com/s/fa65wtiu742lyvv/wintergreen-trailfinder.v1.zip"
 		}
   	]
 }; // / projects object

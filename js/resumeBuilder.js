@@ -6,26 +6,28 @@ bio.contacts.display = function() {
 		var contactEntryType = keys[i];
 		var contactEntryValue = this[keys[i]];
 		formattedContactEntry = HTMLcontactEntry.replace("%data-type%", contactEntryType + ": ").replace("%data-value%", contactEntryValue);
-		$('#contactList').append(formattedContactEntry)
-	}
-};
+		$('#contactList').append(formattedContactEntry);
+}};
 
-bio.skills.populate = function() {
-	for (var i = 0; i < this.length; i++) {
-		formattedSkillOption = HTMLskillOption.replace("%data-skill%", this[i]).replace("%data-name%", this[i]);
+
+/* bio.skills is derived here from bio.skillCodes rather than included originally in the JSON
+	because the latter maps class codes necessary for the skill <select> interactivity */
+
+bio.skills = Object.keys(bio.skillCodes);
+bio.popSkill = function() {
+	for (var i = 0; i < this.skills.length; i++) {
+		formattedSkillOption = HTMLskillOption.replace("%data-skill%", this.skills[i]).replace("%data-name%", this.skills[i]);
 		$('#skillSelector').append(formattedSkillOption);
-	}
-};
+}};
 
 bio.social.display = function() {
-var keys = Object.keys(this);
+	var keys = Object.keys(this);
 	for (var i = 0; i <  keys.length - 1; i++) {
 		var socialIconValue = keys[i];
 		var socialIconURL = this[keys[i]];
 		formattedSocialIcon = HTMLsocialIcon.replace("%data-type%", socialIconValue).replace("%data-url%", socialIconURL);
-		$('#footerSocial').append(formattedSocialIcon)
-	}
-};
+		$('#footerSocial').append(formattedSocialIcon);
+}};
 
 // Function definition to display everything from the JSON "bio" object
 bio.display = function() {
@@ -40,10 +42,10 @@ bio.display = function() {
 	var formattedHeaderContent = formattedName + formattedWelcomeMsg + HTMLroleSelect;
 	$('.bio-col-center').append(formattedHeaderContent);
 	// Populate the skill selector.
-	this.skills.populate();
+	this.popSkill();
 	// Insert the contact details via an encapsulated function
 	this.contacts.display();
-	this.social.display()
+	this.social.display();
 };
 
 
@@ -69,10 +71,8 @@ work.jobs.display = function() {
 		// Combine all formatted HTML code into one work entry object
 		var formattedWorkEntry = formattedWorkEmployer + formattedWorkTitle + formattedWorkDates + formattedWorkLocation + formattedWorkDesc;
 		// Append i'th work entry object after previous entry
-		$('.work-entry:last').append(formattedWorkEntry)
-		}
-	}
-};
+		$('.work-entry:last').append(formattedWorkEntry);
+}}};
 work.display = function(){this.jobs.display()};
 
 
@@ -83,28 +83,19 @@ work.display = function(){this.jobs.display()};
 projects.projects.display = function (){
 	if (this.length > 0) {
 		$('#projSection').append(HTMLprojectHeading);
-
 		for (var i = 0; i < this.length; i++) {
-			$('#projList').append(HTMLprojectStart); 
-			
+			$('#accordion').append(HTMLprojectStart); 
+			// formate the stock HTML with JSON data
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data-name%", this[i].title);
-			var formattedProjectDates = HTMLprojectDates.replace("%data-date%", "Completed -- " + this[i].dates);
 			var formattedProjectDesc = HTMLprojectDesc.replace("%data-desc%", this[i].description);
-			// Combine all formatted HTML code into one project entry object
-			var formattedProjectEntry = formattedProjectTitle + formattedProjectDates + formattedProjectDesc;
+			var formattedProjectEntry = formattedProjectTitle + formattedProjectDesc;
 			$('.project-entry:last').append(formattedProjectEntry)
-      		
-
-      		
+      		// iterate to add pretty pictures
       		if (this[i].images.length > 0) {
         		for (var j = 0; j < this[i].images.length; j++) {
           			formattedImageLink = HTMLprojectImage.replace("%data-img%", this[i].images[j])
-        			$('.pic-box:last').append(formattedImageLink)
-        		}
-     		}
-		}
-	}
-};
+        			$('.pic-box:last').append(formattedImageLink);
+}}}}};
 projects.display = function(){this.projects.display()};
 
 
@@ -124,10 +115,8 @@ education.schools.display = function (){
 			// Combine all formatted HTML code into one school entry object
 			var formattedSchoolEntry = formattedSchoolName + formattedSchoolDegreeMajor + formattedSchoolLocation + formattedSchoolDates;
 			// Append i'th entry object after previous entry
-			$('.education-entry:last').append(formattedSchoolEntry)
-		}
-	}
-};
+			$('.education-entry:last').append(formattedSchoolEntry);
+}}};
 
 education.onlineCourses.display = function (){
 	if (this.length > 0) {
@@ -141,13 +130,11 @@ education.onlineCourses.display = function (){
 			var formattedOnlineEntry = formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates;
 			// Append i'th entry object after previous entry
 			$('.education-entry:last').append(formattedOnlineEntry);
-		}
-	}
-};
+}}};
 // Further encapsulate education display functionality
 education.display = function() {
 	this.schools.display();
-	this.onlineCourses.display()
+	this.onlineCourses.display();
 };
 
 
@@ -162,17 +149,15 @@ work.display();
 projects.display();
 education.display();
 $("#mapSection").append(HTMLmapDiv);
+$('#skillSelector').change(catnap);
 
 
 
 
 
 
-/*
-This is the internationalize-name function, which I don't really care 
-about but I'll leave here now in case I want inspiration for other 
-functionality.
 
+/* The internationalize function is left here only in case I want inspiration later
 function inName() {
     var nameString = bio.name;
     var nameArray = nameString.split(" ");

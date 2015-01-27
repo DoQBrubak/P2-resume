@@ -1,9 +1,7 @@
 var HTMLbioGrid = '<div class="bio-col-left flex-box"></div><div class="bio-col-center flex-box"></div><div class="bio-col-right flex-box"><ul id="contactList"></ul></div>'
 
 
-
 var HTMLbioPic = '<img src="%data-img%" class="bio-pic">';
-
 
 
 var HTMLheaderName = '<h1 id="name" class="color-1">%data-name%</h1>';
@@ -32,13 +30,13 @@ var HTMLworkDesc = '<p><br>%data-desc%</p>';
 
 
 
-
-var HTMLprojectHeading = '<ul id="projList"></ul>';
+// For accordion implemenation reference: http://jqueryui.com/accordion/#default
+var HTMLprojectHeading = '<ul id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist"></ul>'
 
 var HTMLprojectStart = '<li class="project-entry"></li>';
 var HTMLprojectTitle = '<h4><a href="data-url">%data-name%</a></h4>';
-var HTMLprojectDates = '<div class="detail-text">%data-date%</div>';
-var HTMLprojectDesc = '<p><br>%data-desc%</p><div class="pic-box flex-box"></div>';
+var HTMLprojectData = '<div class="detail-text">%data-date%</div>';
+var HTMLprojectDesc = '<div class="detail-text"><p><br>%data-desc%</p><div class="pic-box flex-box"></div></div>';
 var HTMLprojectImage = '<img src="%data-img%" class="proj-pic" alt="A project screenshot">';
 
 
@@ -55,14 +53,13 @@ var HTMLschoolDates = '<div class="detail-text">Completed -- %data-date%</div>';
 
 
 
-
-
 var HTMLonlineHeading = '<h3>Online Classes</h3><ul id="onlineList"></ul>'
 
 var HTMLonlineStart = '<li class="education-entry"></li>';
 var HTMLonlineTitle = '<h4><a href="%data-url%" target="_blank">%data-title%</a>';
 var HTMLonlineSchool = ' -- %data-school%</h4>';
 var HTMLonlineDates = '<div class="detail-text">Completed -- %data-date%</div>';
+
 
 
 
@@ -88,26 +85,15 @@ $(document).click(function(loc) {
 
 
 
-
-  $(function() {
-    var icons = {
-      header: "ui-icon-circle-arrow-e",
-      activeHeader: "ui-icon-circle-arrow-s"
-    };
-    $( "#accordion" ).accordion({
-      icons: icons
-    });
-    $( "#toggle" ).button().click(function() {
-      if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
-        $( "#accordion" ).accordion( "option", "icons", null );
-      } else {
-        $( "#accordion" ).accordion( "option", "icons", icons );
-      }
-    });
-  });
+$(function() {
+  var icons = {header: "ui-icon-circle-arrow-e", activeHeader: "ui-icon-circle-arrow-s"};
+  $('#accordion').accordion({icons: icons})
+});
 
 
 
+
+var catnap = function() {console.log("Yay!")};
 
 
 
