@@ -99,7 +99,7 @@ var projects = {
 			"title": "Wintergreen Trailfinder",
 			"dates": "2014",
 			"description": "A simple JS tool describing the trail network around Wintergreen Resort and highlighting trouble areas in the event of extrication.",
-			"images": ["images/wtg-trailfinder.png","http://placehold.it/300x185"],
+			"images": ["images/wtg-trailfinder.png","images/197x148.gif"],
 			"url": "https://github.com/DoQBrubak"
 		}
   	]

@@ -3,9 +3,12 @@
   <meta charset="utf-8">
   <title>Quintin Brubaker's Resume</title>
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/jquery-ui.css" rel="stylesheet">
   <script src="js/jQuery.js"></script>
-  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>  
   <meta name="viewport" content="width=device-width">
+
 </head>
 
 <body>
@@ -13,7 +16,6 @@
   <div id="main">
     
     <header class="clearfix back-1">
-
     </header>
 
     <section id="workSection" class="back-2">
@@ -30,6 +32,27 @@
     
     <section id="mapSection" class="back-1">
       <h2>Where I've Lived and Worked</h2>
+
+    <div id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist">
+  
+  <h3 class="ui-accordion-header ui-state-default ui-accordion-icons ui-accordion-header-active ui-state-active ui-corner-top" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="true" aria-expanded="true" tabindex="0">
+    <span class="ui-accordion-header-icon ui-icon ui-icon-circle-arrow-s"></span>Section 1</h3>
+  
+  <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active" id="ui-id-2" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false" style="display: block; height: 131px;">
+    <p>Words words words.</p>
+  </div>
+  
+  <h3 class="ui-accordion-header ui-state-default ui-accordion-icons ui-corner-all" role="tab" id="ui-id-3" aria-controls="ui-id-4" aria-selected="false" aria-expanded="false" tabindex="-1">
+  <span class="ui-accordion-header-icon ui-icon ui-icon-circle-arrow-e"></span>Section 2</h3>
+
+
+  <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" id="ui-id-4" aria-labelledby="ui-id-3" role="tabpanel" aria-hidden="true" style="display: none; height: 131px;">
+    <p>Words words words</p>
+  </div>
+</div>
+
+
+
     </section>
     
     <footer class="back-2">

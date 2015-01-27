@@ -20,8 +20,6 @@ var HTMLsocialIcon = '<li><a href="%data-url%"><img src="./images/icons/%data-ty
 
 
 
-
-
 var HTMLworkHeading ='<ul id="workList"></ul>'
 
 var HTMLworkStart = '<li class="work-entry"></li>';
@@ -71,6 +69,10 @@ var HTMLonlineDates = '<div class="detail-text">Completed -- %data-date%</div>';
 var HTMLmapDiv = '<div id="map"></div>';
 
 
+
+
+
+// This function collects an array of user's click locations and displays them to console
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -81,6 +83,29 @@ function logClicks(x,y) {
 $(document).click(function(loc) {
   logClicks(loc.pageX, loc.pageY)  // see jQ docs for loc object and events
 });
+
+
+
+
+
+
+  $(function() {
+    var icons = {
+      header: "ui-icon-circle-arrow-e",
+      activeHeader: "ui-icon-circle-arrow-s"
+    };
+    $( "#accordion" ).accordion({
+      icons: icons
+    });
+    $( "#toggle" ).button().click(function() {
+      if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
+        $( "#accordion" ).accordion( "option", "icons", null );
+      } else {
+        $( "#accordion" ).accordion( "option", "icons", icons );
+      }
+    });
+  });
+
 
 
 
@@ -99,20 +124,15 @@ function initializeMap() { // this will be called on window.load event. see end 
   var locations; // not to be confused with locationFinder.locations  
   var mapOptions = {
       disableDefaultUI: true,
-      center: new google.maps.LatLng(37, -78),
-      zoom: 7
     };
   // Declare and assign a Google Map JS object to variable map
   map = new google.maps.Map(document.querySelector('#map'), mapOptions)
 
 
-
-
-  // locationFinder() returns an array of every location string from the JSONs 
-  // written for bio, education, and work. 
+  // locationFinder() returns an array of every location from the bio, education, and work JSONs
   function locationFinder() {
     // initialize an empty array
-    var locations = [];  // not to be confused with initializeMap.locations
+    var locations = [];
     // add bio.location property to the array
     locations.push(bio.contacts.location);
     // iterate and appends school locations to locations array
@@ -135,13 +155,30 @@ about a single location.
     var lat = placeData.geometry.location.lat();  // latitude from place service
     var lon = placeData.geometry.location.lng();  // longitude from place service
     var name = placeData.formatted_address;   // name from the place service
-    var bounds = window.mapBounds;            // current boundaries of the map window
+    var bounds = window.mapBounds;            // current boundaries of the map window    
+
+    // Define a custom marker image. Refer:
+    // https://developers.google.com/maps/documentation/javascript/examples/icon-complex
+    var image = {
+      url: "images/icons/book-24.png", // http://www.iconsdb.com/orange-icons/sail-boat-icon.html
+      size: new google.maps.Size(24, 24),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(12, 12)
+    };
+
+    // Define the polygon coordinates on the custom marker image that are clickable
+    var shape = {
+      coords: [4,4,4,20,20,20,20,4],
+      type: 'poly'
+    };
+
     // marker is an object with additional data about the pin for a single location
-    
     var marker = new google.maps.Marker({
       map: map,
       position: placeData.geometry.location,
-      title: name
+      title: name,
+      icon: image,
+      shape: shape
     });
 
     // infoWindows are the little helper windows that open when you click
@@ -168,11 +205,6 @@ about a single location.
   // If so it creates a corresponding marker.
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-    
-      //for (var i = 0; i < results.length; i++) {
-      //  console.log(resuls);
-      //}
-      console.log(results);
       createMapMarker(results[0]);
     }
   }
@@ -201,7 +233,9 @@ function pinPoster(locations) {
 }
 
 // Call initializeMap() function once the page has loaded
-window.addEventListener('load', initializeMap);
+// window.addEventListener('load', initializeMap);  // The Udacity way
+google.maps.event.addDomListener(window, 'load', initializeMap);  // Google documentation way
+
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
