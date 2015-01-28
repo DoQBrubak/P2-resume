@@ -3,7 +3,7 @@ var bio = {
 	"role": "My domains of experience include",
 	
 	"welcomeMessage": "Distinguit quid barbam?",
-	"biopic": "./images/biopic.jpg",
+	"biopic": "./images/profile.png",
 	"skillCodes": {
 		"Multitalented": "work-all",
 		"Web Developer": "work-web",
@@ -43,7 +43,7 @@ var work = {
 			"location": "Lovingston, VA, USA",
 			"dates": "November 2012 - present",
 			"description": "Paramedic for 'county crew' serving rural Nelson County. Provided ALS emergency care including RSI, in a low-resources 911 system, with lengthy transport times.",
-			"url": "http://www.WtgFireResq.org",
+			"url": "http://www.wtgfireresq.org",
 			"type": "work-ems" 
 		},
 		{
@@ -93,27 +93,27 @@ var projects = {
 			"title": "Wintergreen Fire and Rescue website redesign",
 			"dates": "2015",
 			"description": "The old website was Flash-dependent and mobile unfriendly. I remade it with Bootstrap and responsive design concepts in mind.",
-			"images":["images/wtg-website.png"]
+			"images":["images/projects/wtgfireresq-screen-01.png"]
 		},
 		{
 			"title": "Pages for Udacity Nanodegree",
 			"dates": "2015",
 			"description": "Two simple web page assignments that employ fundamentals of HTML, CSS, and Bootstrap.",
-			"images": ["images/orange-mug.png","images/heroic-bug.png"],
+			"images": ["images/projects/orange-mug.png","images/projects/heroic-bug.png"],
 			"url": "NA"	
 		},
 		{
 			"title": "Nelson Zipfinder",
 			"dates": "2014",
 			"description": "A JavaScript-powered tool to help local EMS crews look up the viscinity of the address they are responding to.",
-			"images": ["images/nel-zipfinder.png","images/197x148.gif"],
+			"images": ["images/projects/zipfinder-screen-01.png","images/projects/zipfinder-screen-02.png"],
 			"url": "https://www.dropbox.com/s/lhmku7akkf8pwb9/nelson-zipfinder-3b32618.zip"
 		},
 		{
 			"title": "Wintergreen Trailfinder",
 			"dates": "2014",
 			"description": "A simple JS tool describing the trail network around Wintergreen Resort and highlighting trouble areas in the event of extrication.",
-			"images": ["images/wtg-trailfinder.png","images/197x148.gif"],
+			"images": ["images/projects/trailfinder-screen-01.png","images/projects/trailfinder-screen-02.png"],
 			"url": "https://www.dropbox.com/s/fa65wtiu742lyvv/wintergreen-trailfinder.v1.zip"
 		}
   	]
