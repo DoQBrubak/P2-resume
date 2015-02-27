@@ -13,7 +13,7 @@ bio.contacts.display = function() {
 /* bio.skills is derived here from bio.skillCodes rather than included originally in the JSON
 	because the latter maps class codes necessary for the skill <select> interactivity */
 
-bio.skills = Object.keys(bio.skillCodes);
+bio.skills = Object.keys(bio.skillCodes);  //TODO - check whether this line is unnecessary
 bio.popSkill = function() {
 	for (var i = 0; i < this.skills.length; i++) {
 		formattedSkillOption = HTMLskillOption.replace("%data-skill%", this.skills[i]).replace("%data-name%", this.skills[i]);
