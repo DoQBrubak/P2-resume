@@ -1,7 +1,7 @@
 var bio = {
 	"name": "D. Quintin Brubaker",
 	"welcomeMessage": "Distinguit quid barbam?",
-	"biopic": "./images/biopic.jpg", //TODO: Convert to a .png
+	"biopic": "./images/biopic.jpg",
 	"skillCodes": {
 		"Multitalented": "work-all",
 		"Web Developer": "work-web",
