@@ -1,38 +1,7 @@
-
-bio.contacts.display = function() {
-	// I referenced StackOverflow regarding finding object length: http://stackoverflow.com/questions/5223/length-of-a-javascript-object-that-is-associative-array
-	var keys = Object.keys(this);
-	for (var i = 0; i <  keys.length - 1; i++) {
-		var contactEntryType = keys[i];
-		var contactEntryValue = this[keys[i]];
-		formattedContactEntry = HTMLcontactEntry.replace("%data-type%", contactEntryType + ": ").replace("%data-value%", contactEntryValue);
-		$('#contactList').append(formattedContactEntry);
-}};
-
-
-/* bio.skills is derived here from bio.skillCodes rather than included originally in the JSON
-	because the latter maps class codes necessary for the skill <select> interactivity */
-
-bio.skills = Object.keys(bio.skillCodes);  //TODO - check whether this line is unnecessary
-bio.popSkill = function() {
-	for (var i = 0; i < this.skills.length; i++) {
-		formattedSkillOption = HTMLskillOption.replace("%data-skill%", this.skills[i]).replace("%data-name%", this.skills[i]);
-		$('#skillSelector').append(formattedSkillOption);
-}};
-
-bio.social.display = function() {
-	var keys = Object.keys(this);
-	for (var i = 0; i <  keys.length - 1; i++) {
-		var socialIconValue = keys[i];
-		var socialIconURL = this[keys[i]];
-		formattedSocialIcon = HTMLsocialIcon.replace("%data-type%", socialIconValue).replace("%data-url%", socialIconURL);
-		$('#footerSocial').append(formattedSocialIcon);
-}};
-
-// Function definition to display everything from the JSON "bio" object
+// Display everything from the JSON "bio" object
 bio.display = function() {
 	// Establish the header structure.
-	$('header').prepend(HTMLbioGrid);
+	$('header').prepend(HTMLbioGrid);// Establish the header structure.
 	// Insert an image in the header left column. It will shrink/disappear responsively.
 	var formattedBioPic = HTMLbioPic.replace("%data-img%", this.biopic);
 	$('.bio-col-left').append(formattedBioPic)
@@ -50,6 +19,39 @@ bio.display = function() {
 
 
 
+
+
+
+bio.contacts.display = function() {
+	// I referenced StackOverflow regarding finding object length: http://stackoverflow.com/questions/5223/length-of-a-javascript-object-that-is-associative-array
+	var keys = Object.keys(this);
+	for (var i = 0; i <  keys.length - 1; i++) {
+		var entryType = keys[i];
+		var entryValue = this[keys[i]];
+		formattedEntry = HTMLcontactEntry.replace("%data-type%", entryType + ": ").replace("%data-value%", entryValue);
+		$('#contactList').append(formattedEntry);
+}};
+
+
+/* bio.skills is derived here from bio.skillCodes rather than included originally in the JSON
+	because the latter maps class codes necessary for the skill <select> interactivity */
+
+bio.skills = Object.keys(bio.skillCodes);  //TODO - check whether this line is unnecessary
+bio.popSkill = function() {
+	for (var i = 0; i < this.skills.length; i++) {
+		formattedSkillOption = HTMLskillOption.replace("%data-skill%", this.skills[i]).replace("%data-name%", this.skills[i]);
+		$('#skillSelector').append(formattedSkillOption);
+}};
+
+bio.social.display = function() {
+	var keys = Object.keys(this);
+	$('footer').append(HTMLsocialHeading);
+	for (var i = 0; i <  keys.length - 1; i++) {
+		var socialIconValue = keys[i];
+		var socialIconURL = this[keys[i]];
+		formattedSocialIcon = HTMLsocialIcon.replace("%data-type%", socialIconValue).replace("%data-url%", socialIconURL);
+		$('#footerSocial').append(formattedSocialIcon);
+}};
 
 
 

@@ -1,4 +1,6 @@
-var HTMLbioGrid = '<div class="bio-col-left flex-box"></div><div class="bio-col-center flex-box"></div><div class="bio-col-right flex-box"><ul id="contactList"></ul></div>'
+var HTMLbioGrid = '<div class="bio-col-left flex-box"></div>'+
+                  '<div class="bio-col-center flex-box"></div>'+
+                  '<div class="bio-col-right flex-box"><ul id="contactList"></ul></div>';
 
 
 var HTMLbioPic = '<img src="%data-img%" class="bio-pic">';
@@ -6,12 +8,13 @@ var HTMLbioPic = '<img src="%data-img%" class="bio-pic">';
 
 var HTMLheaderName = '<h1 id="name" class="color-1">%data-name%</h1>';
 var HTMLwelcomeMsg = '<p class="bio-msg color-3">%data-msg% ';
-var HTMLroleSelect = '<select id="skillSelector"></select></p>'
-var HTMLskillOption = '<option value="%data-skill%">%data-name%</option>'
+var HTMLroleSelect = '<select id="skillSelector"></select></p>';
+var HTMLskillOption = '<option value="%data-skill%">%data-name%</option>';
 
 
-var HTMLcontactEntry = '<li><span class="color-2">%data-type%</span><span class="color-1 text-bold">%data-value%</span></li>';
-var HTMLsocialIcon = '<li><a href="%data-url%"><img src="./images/icons/%data-type%.png"></a></li>'
+var HTMLcontactEntry = '<li><span class="color-2">%data-type%</span>'+
+                       '<span class="color-1 text-bold">%data-value%</span></li>';
+
 
 
 
@@ -19,7 +22,6 @@ var HTMLsocialIcon = '<li><a href="%data-url%"><img src="./images/icons/%data-ty
 
 
 var HTMLworkHeading ='<ul id="workList"></ul>'
-
 var HTMLworkStart = '<li class="work-entry"></li>';
 var HTMLworkEmployer = '<h4><a href="%data-url%" target="_blank">%data-job%</a>';
 var HTMLworkTitle = ' -- %data-title%</h4>';
@@ -29,10 +31,8 @@ var HTMLworkDesc = '<p><br>%data-desc%</p>';
 
 
 
-
 // For accordion implemenation reference: http://jqueryui.com/accordion/#default
 var HTMLprojectHeading = '<ul id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist"></ul>'
-
 var HTMLprojectStart = '<li class="project-entry"></li>';
 var HTMLprojectTitle = '<h4><a href="data-url">%data-name%</a></h4>';
 var HTMLprojectData = '<div class="detail-text">%data-date%</div>';
@@ -41,10 +41,7 @@ var HTMLprojectImage = '<img src="%data-img%" class="proj-pic" alt="A project sc
 
 
 
-
-
 var HTMLschoolHeading = '<h3>Schools Attended</h3><ul id="schoolList"></ul>'
-
 var HTMLschoolStart = '<li class="education-entry"></li>';
 var HTMLschoolName = '<h4><a href="%data-url%" target="_blank">%data-name%</a>';
 var HTMLschoolDegreeMajor = ' -- %data-degree% -- <em>%data-major% major</em></h4>';
@@ -54,7 +51,6 @@ var HTMLschoolDates = '<div class="detail-text">Completed -- %data-date%</div>';
 
 
 var HTMLonlineHeading = '<h3>Online Classes</h3><ul id="onlineList"></ul>'
-
 var HTMLonlineStart = '<li class="education-entry"></li>';
 var HTMLonlineTitle = '<h4><a href="%data-url%" target="_blank">%data-title%</a>';
 var HTMLonlineSchool = ' -- %data-school%</h4>';
@@ -62,8 +58,13 @@ var HTMLonlineDates = '<div class="detail-text">Completed -- %data-date%</div>';
 
 
 
-
 var HTMLmapDiv = '<div id="map"></div>';
+
+
+
+var HTMLsocialHeading = '<ul id="footerSocial" style="padding-left:5%; padding-right:5%" class="flex-box"></ul>'
+var HTMLsocialIcon = '<li><a href="%data-url%"><img src="./images/icons/%data-type%.png"></a></li>'
+
 
 
 
