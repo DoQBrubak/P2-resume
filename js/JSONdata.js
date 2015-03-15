@@ -97,7 +97,7 @@ var projects = {
 			"title": "Pages for Udacity Nanodegree",
 			"dates": "2015",
 			"description": "Two simple web page assignments that employ fundamentals of HTML, CSS, and Bootstrap.",
-			"images": ["images/projects/orange-mug.png","images/projects/heroic-bug.png"],
+			"images": ["images/projects/mug-screen-01.jpg","images/projects/mug-screen-02.jpg"],
 			"url": "NA"	
 		},
 		{
