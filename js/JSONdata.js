@@ -91,7 +91,7 @@ var projects = {
 			"title": "Wintergreen Fire and Rescue website redesign",
 			"dates": "2015",
 			"description": "The old website was Flash-dependent and mobile unfriendly. I remade it with Bootstrap and responsive design concepts in mind.",
-			"images":["images/projects/wtgfireresq-screen-01.png"]
+			"images":["images/projects/wtgfireresq-screen-01.jpg", "images/projects/wtgfireresq-screen-02.jpg"]
 		},
 		{
 			"title": "Pages for Udacity Nanodegree",
