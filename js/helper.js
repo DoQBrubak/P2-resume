@@ -65,7 +65,7 @@ var HTMLmapDiv = '<div id="map"></div>';
 
 
 var HTMLsocialHeading = '<ul id="footerSocial" class="flex-box"></ul>'
-var HTMLsocialIcon = '<li><a href="%data-url%"><img class="social-token" src="./images/icons/%data-type%.png"></a></li>'
+var HTMLsocialIcon = '<li><a href="%data-url%"><img class="social-token" src="./images/social/%data-type%.png"></a></li>'
 
 
 
