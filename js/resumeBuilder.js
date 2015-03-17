@@ -4,12 +4,12 @@ bio.display = function() {
 	$('header').prepend(HTMLbioGrid);// Establish the header structure.
 	// Insert an image in the header left column. It will shrink/disappear responsively.
 	var formattedBioPic = HTMLbioPic.replace("%data-img%", this.biopic);
-	$('.bio-col-left').append(formattedBioPic)
+	$('.bio-box-1').append(formattedBioPic)
 	// Insert the main column name and the (empty) skill selector.
 	var formattedName = HTMLheaderName.replace("%data-name%", this.name);
 	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data-msg%", this.welcomeMessage);
 	var formattedHeaderContent = formattedName + formattedWelcomeMsg + HTMLroleSelect;
-	$('.bio-col-center').append(formattedHeaderContent);
+	$('.bio-box-2').append(formattedHeaderContent);
 	// Populate the skill selector.
 	this.popSkill();
 	// Insert the contact details via an encapsulated function

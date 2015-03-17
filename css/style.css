@@ -72,32 +72,25 @@ ul {
 }
 
 
-.back-1 {background-color: #F1E5C7;}
-.back-2 {background-color: #FAF3E1;}
+.bg-color-1 {background-color: #F1E5C7;}
+.bg-color-2 {background-color: #FAF3E1;}
 
-.bio-col-left, .bio-col-center, .bio-col-right {
-  max-height: 240px;
-}
-
-.bio-col-left {
+.bio-box-1 {
   float: left;
-  height:235px;
-  width:240px;
 }
 
-.bio-col-center {
+.bio-box-2 {
   float: left;
-  height: 100px;
-  width: 350px;
+  width: 200px;
 }
 
-.bio-col-right {
+.bio-box-3 {
   float: left;
   width: 300px;
 }
 
 .bio-pic {
-  border: 3px solid #7AC143;
+  border: 3px solid #CBB677; /* aka color-2, below */
 }
 
 .bio-msg {
@@ -125,7 +118,6 @@ ul {
 .color-5{}
 .color-6{color:#F1E5C7;} /*library cream*/
 .color-7{color:#FAF3E1;} /*lighter cream*/
-
 
 .contact-entry {
   color: #FFFFFF;
@@ -185,34 +177,59 @@ ul {
 
 #mapSection {
   padding-bottom:10px;
-} 
+}
+
 @media only screen and (max-width: 1024px) {
   #letsConnect {
     margin-top: 5%;
   }
 }
 
-@media only screen and (max-width:900px) {
-  --.bio-pic {
-    width: 175px;
+
+@media only screen and (min-width: 500px) {
+  .bio-box-2 {
+    height: 166px;
   }
 }
 
-@media only screen and (max-width: 750px) {
-  #letsConnect {
-    margin-top: 10%;
+@media only screen and (max-width: 500px) {
+  h2 {
+    font-size: 20px;
+    padding: 6px;
   }
-  --.bio-pic {
-    width: 150px;
+  h3 {
+    font-size: 18px;
+    padding: 6px;
   }
-  .welcome-message {
+  h4 {
+    font-size: 16px;
+    padding: 6px;
+  }
+  p {
+    font-size: 14px;
+  }
+  .detail-text {
+    font-size: 12px;
+  }
+  .detail-text-2 {
+    float:right;
+  }
+  .bio-pic {
+    width: 80px;
+    height: 80px;
+  }
+  .bio-msg {
     display: none;
   }
-}
-
-@media only screen and (min-width: 750px) {
-  #skillsH3,
-  .bio-pic {
-    display: block;
+  .bio-box-3 {
+    display: none;
+  }
+  .social-token {
+    width: 35px;
+    height: 35px;
+  }
+  #map {
+    height:250px;
+    width: 90%;
   }
 }

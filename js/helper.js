@@ -1,13 +1,14 @@
-var HTMLbioGrid = '<div class="bio-col-left flex-box"></div>'+
-                  '<div class="bio-col-center flex-box"></div>'+
-                  '<div class="bio-col-right flex-box"><ul id="contactList"></ul></div>';
+var HTMLbioGrid = '<div class="bio-box-1 flex-box"></div>'+
+                  '<div class="bio-box-2 flex-box"></div>'+
+                  '<div class="bio-box-3 flex-box"><ul id="contactList"></ul></div>';
+
+var HTMLbioPic = '<img src="%data-img%" class="bio-pic color-2">';
 
 
-var HTMLbioPic = '<img src="%data-img%" class="bio-pic">';
 
 
 var HTMLheaderName = '<h1 id="name" class="color-1">%data-name%</h1>';
-var HTMLwelcomeMsg = '<p class="bio-msg color-3">%data-msg% ';
+var HTMLwelcomeMsg = '<p class="bio-msg color-2">%data-msg% ';
 var HTMLroleSelect = '<select id="skillSelector"></select></p>';
 var HTMLskillOption = '<option value="%data-skill%">%data-name%</option>';
 
@@ -26,7 +27,7 @@ var HTMLworkStart = '<li class="work-entry"></li>';
 var HTMLworkEmployer = '<h4><a href="%data-url%" target="_blank">%data-job%</a>';
 var HTMLworkTitle = ' -- %data-title%</h4>';
 var HTMLworkLocation = '<div class="detail-text">%data-loc%</div>';
-var HTMLworkDates = '<div class="detail-text">%data-dates%</div>';
+var HTMLworkDates = '<div class="detail-text detail-text-2">%data-dates%</div>';
 var HTMLworkDesc = '<p><br>%data-desc%</p>';
 
 
@@ -36,7 +37,7 @@ var HTMLprojectHeading = '<ul id="accordion" class="ui-accordion ui-widget ui-he
 var HTMLprojectStart = '<li class="project-entry"></li>';
 var HTMLprojectTitle = '<h4><a href="data-url">%data-name%</a></h4>';
 var HTMLprojectData = '<div class="detail-text">%data-date%</div>';
-var HTMLprojectDesc = '<div class="detail-text"><p><br>%data-desc%</p><div class="pic-box flex-box"></div></div>';
+var HTMLprojectDesc = '<div class="detail-text-2"><p><br>%data-desc%</p><div class="pic-box flex-box"></div></div>';
 var HTMLprojectImage = '<img src="%data-img%" class="proj-pic" alt="A project screenshot">';
 
 
@@ -62,8 +63,9 @@ var HTMLmapDiv = '<div id="map"></div>';
 
 
 
-var HTMLsocialHeading = '<ul id="footerSocial" style="padding-left:5%; padding-right:5%" class="flex-box"></ul>'
-var HTMLsocialIcon = '<li><a href="%data-url%"><img src="./images/icons/%data-type%.png"></a></li>'
+
+var HTMLsocialHeading = '<ul id="footerSocial" class="flex-box"></ul>'
+var HTMLsocialIcon = '<li><a href="%data-url%"><img class="social-token" src="./images/icons/%data-type%.png"></a></li>'
 
 
 
