@@ -1,18 +1,18 @@
 var HTMLbioGrid = '<div class="bio-box-1 flex-box"></div>'+
                   '<div class="bio-box-2 flex-box"></div>'+
-                  '<div class="bio-box-3 flex-box"><ul id="contactList"></ul></div>';
+                  '<div class="bio-box-3 flex-box"></div>';
 
+/* The contents of bio-box-1 */
 var HTMLbioPic = '<img src="%data-img%" class="bio-pic color-2">';
 
-
-
-
+/* The contents of bio-box-2 */
 var HTMLheaderName = '<h1 id="name" class="color-1">%data-name%</h1>';
 var HTMLwelcomeMsg = '<p class="bio-msg color-2">%data-msg% ';
 var HTMLroleSelect = '<select id="skillSelector"></select></p>';
 var HTMLskillOption = '<option value="%data-skill%">%data-name%</option>';
 
-
+/* The contents of bio-box-3 */
+var HTMLcontactList = '<ul id="contactList"></ul>'
 var HTMLcontactEntry = '<li><span class="color-2">%data-type%</span>'+
                        '<span class="color-1 text-bold">%data-value%</span></li>';
 
@@ -28,7 +28,7 @@ var HTMLworkEmployer = '<h4><a href="%data-url%" target="_blank">%data-job%</a>'
 var HTMLworkTitle = ' -- %data-title%</h4>';
 var HTMLworkLocation = '<div class="detail-text">%data-loc%</div>';
 var HTMLworkDates = '<div class="detail-text detail-text-2">%data-dates%</div>';
-var HTMLworkDesc = '<p><br>%data-desc%</p>';
+var HTMLworkDesc = '<p>%data-desc%</p>';
 
 
 

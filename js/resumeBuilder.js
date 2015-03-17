@@ -1,47 +1,47 @@
 // Display everything from the JSON "bio" object
 bio.display = function() {
-	// Establish the header structure.
-	$('header').prepend(HTMLbioGrid);// Establish the header structure.
-	// Insert an image in the header left column. It will shrink/disappear responsively.
+	$('header').prepend(HTMLbioGrid); //Establish the header structure
+	
+
 	var formattedBioPic = HTMLbioPic.replace("%data-img%", this.biopic);
-	$('.bio-box-1').append(formattedBioPic)
+	$('.bio-box-1').append(formattedBioPic);
+
+
 	// Insert the main column name and the (empty) skill selector.
 	var formattedName = HTMLheaderName.replace("%data-name%", this.name);
 	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data-msg%", this.welcomeMessage);
 	var formattedHeaderContent = formattedName + formattedWelcomeMsg + HTMLroleSelect;
 	$('.bio-box-2').append(formattedHeaderContent);
-	// Populate the skill selector.
-	this.popSkill();
-	// Insert the contact details via an encapsulated function
-	this.contacts.display();
-	this.social.display();
+	
+	
+	this.skills.display(); //These go in bio-box-2
+	this.contacts.display(); //These go in bio-box-3
+	this.social.display(); //These actually appear in the page Footer
 };
 
 
 
-
-
-
 bio.contacts.display = function() {
+	$('.bio-box-3').append(HTMLcontactList);
 	// I referenced StackOverflow regarding finding object length: http://stackoverflow.com/questions/5223/length-of-a-javascript-object-that-is-associative-array
 	var keys = Object.keys(this);
 	for (var i = 0; i <  keys.length - 1; i++) {
 		var entryType = keys[i];
 		var entryValue = this[keys[i]];
-		formattedEntry = HTMLcontactEntry.replace("%data-type%", entryType + ": ").replace("%data-value%", entryValue);
+		var formattedEntry = HTMLcontactEntry.replace("%data-type%", entryType + ": ").replace("%data-value%", entryValue);
 		$('#contactList').append(formattedEntry);
 }};
 
 
 /* bio.skills is derived here from bio.skillCodes rather than included originally in the JSON
 	because the latter maps class codes necessary for the skill <select> interactivity */
-
-bio.skills = Object.keys(bio.skillCodes);  //TODO - check whether this line is unnecessary
-bio.popSkill = function() {
-	for (var i = 0; i < this.skills.length; i++) {
-		formattedSkillOption = HTMLskillOption.replace("%data-skill%", this.skills[i]).replace("%data-name%", this.skills[i]);
+bio.skills.display = function() {
+	var skills = Object.keys(this);
+	for (var i=0; i<skills.length; i++) {
+		formattedSkillOption = HTMLskillOption.replace("%data-skill%", skills[i]).replace("%data-name%", skills[i]);
 		$('#skillSelector').append(formattedSkillOption);
-}};
+	}
+}
 
 bio.social.display = function() {
 	var keys = Object.keys(this);
@@ -58,6 +58,10 @@ bio.social.display = function() {
 
 
 
+
+
+
+work.display = function(){this.jobs.display()};
 work.jobs.display = function() {
 	if (this.length > 0) {
 		for (var i = 0; i < this.length; i ++) {
@@ -75,13 +79,19 @@ work.jobs.display = function() {
 		// Append i'th work entry object after previous entry
 		$('.work-entry:last').append(formattedWorkEntry);
 }}};
-work.display = function(){this.jobs.display()};
 
 
 
 
 
 
+
+
+
+
+
+
+projects.display = function(){this.projects.display()};
 projects.projects.display = function (){
 	if (this.length > 0) {
 		$('#projSection').append(HTMLprojectHeading);
@@ -98,13 +108,22 @@ projects.projects.display = function (){
           			formattedImageLink = HTMLprojectImage.replace("%data-img%", this[i].images[j])
         			$('.pic-box:last').append(formattedImageLink);
 }}}}};
-projects.display = function(){this.projects.display()};
 
 
 
 
 
 
+
+
+
+
+
+
+education.display = function() {
+	this.schools.display();
+	this.onlineCourses.display();
+};
 education.schools.display = function (){
 	if (this.length > 0) {
 		$('#eduSection').append(HTMLschoolHeading);
@@ -119,7 +138,6 @@ education.schools.display = function (){
 			// Append i'th entry object after previous entry
 			$('.education-entry:last').append(formattedSchoolEntry);
 }}};
-
 education.onlineCourses.display = function (){
 	if (this.length > 0) {
 		$('#eduSection').append(HTMLonlineHeading);
@@ -133,11 +151,7 @@ education.onlineCourses.display = function (){
 			// Append i'th entry object after previous entry
 			$('.education-entry:last').append(formattedOnlineEntry);
 }}};
-// Further encapsulate education display functionality
-education.display = function() {
-	this.schools.display();
-	this.onlineCourses.display();
-};
+
 
 
 

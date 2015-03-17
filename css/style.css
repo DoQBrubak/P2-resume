@@ -65,6 +65,7 @@ p {
   color:;
   font-size: 16px;
   line-height: 16px;
+  padding-top: 4px;
 }
 
 ul {
@@ -168,6 +169,12 @@ ul {
 
 
 
+
+
+
+
+
+
 #map {
   display: block;
   height: 350px;
@@ -229,7 +236,10 @@ ul {
     height: 35px;
   }
   #map {
-    height:250px;
+    height:180px;
     width: 90%;
+  }
+  #socialH2 {
+    display: none;
   }
 }

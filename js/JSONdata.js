@@ -2,21 +2,19 @@ var bio = {
 	"name": "D. Quintin Brubaker",
 	"welcomeMessage": "Distinguit quid barbam?",
 	"biopic": "./images/biopic.jpg",
-	"skillCodes": {
+	"skills": {
 		"Multitalented": "work-all",
 		"Web Developer": "work-web",
 		"Paramedic": "work-ems",
 		"River Guide": "work-riv",
 		"Hospitality": "work-bev",
 		"Bus Driver": "work-bus"},
-
 	"contacts": {
 		"email": "Quintin.Brubaker@Gmail.com",
 		"location": "Winchester, VA, USA",
 		"mobile": "540-247-9940",
 		"github": "DoQBrubak",
 		"twitter": "@me_DQB"},
-
 	"social": {
 		"linkedin": "https://www.linkedin.com/profile/view?id=201488195/",
 		"github": "https://github.com/DoQBrubak/",
