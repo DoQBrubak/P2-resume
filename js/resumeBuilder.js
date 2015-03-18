@@ -55,14 +55,15 @@ work.display = function(){
 work.jobs.display = function() {
 	if (this.length > 0) {
 		for (var i = 0; i < this.length; i ++) {
-    	$('#workSection').append(HTMLworkStart);
+    	var formattedWorkStart = HTMLworkStart.replace("%data-worktype%",this[i].type);
+    	$('#workSection').append(formattedWorkStart);
 		var formattedWorkEmployer = HTMLworkEmployer.replace("%data-job%", this[i].employer).replace("%data-url%", this[i].url);
 		var formattedWorkTitle = HTMLworkTitle.replace("%data-title%", this[i].title);
 		var formattedWorkLocation = HTMLworkLocation.replace("%data-loc%", this[i].location);
 		var formattedWorkDates = HTMLworkDates.replace("%data-dates%", this[i].dates);
 		var formattedWorkDesc = HTMLworkDesc.replace("%data-desc%", this[i].description);
 		// Combine all formatted HTML code into one work entry object
-		var formattedWorkEntry = formattedWorkEmployer + formattedWorkTitle + formattedWorkDates + formattedWorkLocation + formattedWorkDesc;
+		var formattedWorkEntry = formattedWorkEmployer + formattedWorkTitle + formattedWorkLocation + formattedWorkDates + formattedWorkDesc;
 		// Append i'th work entry object after previous entry
 		$('.work-entry:last').append(formattedWorkEntry);
 }}};
@@ -88,7 +89,7 @@ projects.projects.display = function (){
 		$('#projSection').append(HTMLprojectAccordion);
 		$('#projSection').append(HTMLprojectSimple)
 		for (var i = 0; i < this.length; i++) {
-			var formattedProjectTitle = HTMLprojectTitle.replace("%data-name%", this[i].title);
+			var formattedProjectTitle = HTMLprojectTitle.replace("%data-name%", this[i].title).replace("%data-url%", this[i].url);
 			var formattedProjectDesc = HTMLprojectDesc.replace("%data-desc%", this[i].description);
 			var formattedProjectData = formattedProjectTitle + formattedProjectDesc;
 			var formattedProjectEntry = HTMLprojectStart.replace("%data%", formattedProjectData);
@@ -96,10 +97,17 @@ projects.projects.display = function (){
 
       		if (this[i].images.length > 0) {
         		for (var j = 0; j < this[i].images.length; j++) {
-          			formattedImageLink = HTMLprojectImage.replace("%data-img%", this[i].images[j]).replace("%data-url%", this[i].url);
+          			var formattedImageLink = HTMLprojectImage.replace("%data-img%", this[i].images[j]).replace("%data-url%", this[i].url);
         			$('.pic-box:last').append(formattedImageLink);
-        	//$('#projSimple').append(formattedProjectEntry);
-}}}}};
+        	};
+        	/* Replacing the pic-box class label with ghost-box accomplishes two things. It prevents 
+        	 * the aQ selector just above from losing track of where the screenshots actually belong 
+        	 * (in the projectAccordion but not in the projectSimple). And the ghost-box style class 
+        	 * disappears (via display: none in style.css) when screen width < 500. Boo!
+        	 */
+        	var formattedProjectEntry = formattedProjectEntry.replace("pic-box flex-box", "ghost-box");
+        	$('#projSimple').append(formattedProjectEntry);
+}}}};
 
 
 
@@ -156,6 +164,4 @@ work.display();
 projects.display();
 education.display();
 $("#mapSection").append(HTMLmapDiv);
-$('#skillSelector').change(catnap);
-
-
+$('#skillSelector').change(reDisplayJobs);

@@ -24,6 +24,27 @@ var bio = {
 		"facebook": "https://www.facebook.com/quintin.brubaker/",
 		"wordpress": "https://dqbrva.wordpress.com/"}
 };
+/* This array is included to let the reDisplayJobs() function - which is defined in 
+ * helper.js - be defined more succinctly. This is dependent on the above-defined 
+ * skills property.
+ */
+bio.skillCategories = [];
+for(key in bio.skills) {
+	if (typeof(bio.skills[key])=="string"){
+		bio.skillCategories.push(bio.skills[key])
+}};
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,10 +53,21 @@ var bio = {
 
 var work = {
 	"jobs": [
+	   {"employer": "YOUR COMPANY NAME HERE",
+		"title": "Futuristic web guy",
+		"location": "Corporate Headquarters",
+		"dates": "The near future - The distant future",
+		"description": "I will work long hours, bringing your shareholders great "+
+			"ROI. I will eat your catered lunches, supporting local service "+
+			"industry jobs. I will troubleshoot my own quetions using incisive "+
+			"web queries, and will not cry over spilt milk.",
+		"url": "",
+		"type": "work-web" },
+
 	   {"employer": "Wintergreen Fire Department",
 		"title": "Paramedic",
 		"location": "Lovingston, VA, USA",
-		"dates": "November 2012 - present",
+		"dates": "November 2012 - Present",
 		"description": "Paramedic for 'county crew' serving rural Nelson County. "+
 			"Provided ALS emergency care including RSI, in a low-resources 911 "+
 			"system, with lengthy transport times.",
@@ -46,33 +78,71 @@ var work = {
 		"title": "Paramedic",
 		"location": "Richmond, VA, USA",
 		"dates": "October 2011 - January 2013",
-		"description": "Paramedic for a busy high-performance EMS system.",
-		"url": "http://www.raaems.org",
-		"type": "work-ems"},
-
-	   {"employer": "Harrisonburg Rescue Squad",
-		"title": "Volunteer Paramedic",
-		"location": "Harrisonburg, VA, USA",
-		"dates": "November 2011 - December 2013",
-		"description": "Paramedic for a busy station-based college town rescue squad.",
-		"url": "http://www.rescue40.org",
-		"type": "work-ems"},
-
-	   {"employer": "Harrisonburg Department of Public Transit",
-		"title": "Transit Driver",
-		"location": "Harrisonburg, VA, USA",
-		"dates": "November 2008 - January 2010",
-		"description": "Paramedic for a busy high-performance EMS system.",
+		"description": "Paramedic for a busy high-performance urban EMS system.",
 		"url": "http://www.raaems.org",
 		"type": "work-ems"},
 		
+	   {"employer": "K Bar Pizza",
+		"title": "Bartender; Server; Pizza cook",
+		"location": "Gardiner, MT, USA",
+		"dates": "June 2011 - September 2011",
+		"description": "Day 1 on the job: Washing dishes. Day 2: Food prep. Day 3: Hosting. "+
+			"Day 4: Throwing pizza pies. Day 5: Serving dinner tables. Day 6: Tending bar. "+
+			"And on the seventh day, He saw it was good, and He rested.",
+		"url": "http://www.kbarpizza.com",
+		"type": "work-bev"},
+
 	   {"employer": "Yellowstone Raft Company",
 		"title": "Whitewater raft guide",
 		"location": "Gardiner, MT, USA",
 		"dates": "May 2011 - September 2011",
-		"description": "Guided class IV rafts under the Big Sky.",
+		"description": "Guided whitewater rafts on the Yellowstone River.",
 		"url": "http://www.yellowstoneraft.com",
 		"type": "work-riv"},
+
+	   {"employer": "Livingston Fire Department",
+		"title": "Paramedic - reserve corps",
+		"location": "Livingston, MT, USA",
+		"dates": "February 2011 - August 2011",
+		"description": "Served as a part-time paramedic for a department which provided EMS and "+
+			"rescue to the town of Livingston and surrounding Park County, MT.",
+		"url": "http://www.livingstonmontana.org/living/fire_and_rescue.html",
+		"type": "work-ems"},
+
+	   {"employer": "Harrisonburg Department of Public Transit",
+		"title": "Transit driver",
+		"location": "Harrisonburg, VA, USA",
+		"dates": "November 2008 - January 2010",
+		"description": "Drove transit routes for the city of Harrisonburg, which ."+
+			"contracts to provide transportation for the James Madison University campus.",
+		"url": "http://www.harrisonburgva.gov/hdpt",
+		"type": "work-bus"},
+
+		{"employer": "Harrisonburg Rescue Squad",
+		"title": "Paramedic - volunteer",
+		"location": "Harrisonburg, VA, USA",
+		"dates": "November 2008 - Present",
+		"description": "Paramedic for a busy station-based college town rescue squad.",
+		"url": "http://www.rescue40.org",
+		"type": "work-ems"},
+
+	   {"employer": "Ace Adventure Resort",
+		"title": "Whitewater raft guide",
+		"location": "Minden, WV, USA",
+		"dates": "May 2008 - October 2010",
+		"description": "Guided rafts on the class IV New River during the summer, and "+
+			"on the class V Gauley River during the fall.",
+		"url": "http://www.aceraft.com",
+		"type": "work-riv"},
+
+	   {"employer": "Lost Paddle Bar & Grill",
+		"title": "Bartender; Server",
+		"location": "Minden, WV, USA",
+		"dates": "April 2008 - October 2008",
+		"description": "Poured libations and served tables at the \"company store\", for "+
+			"river rafters and tourists alike",
+		"url": "http://www.aceraft.com/when-you-book2/grub",
+		"type": "work-bev"},
 
 	   {"employer": "Montana Whitewater",
 		"title": "Whitewater raft guide",
@@ -99,6 +169,18 @@ var work = {
 		"type": "work-bus"}
   	]
 };
+// This magic ball selects the url of my future employer...
+work.jobs[0].url = ["www.uber.com", "www.teslamotors.com","www.spacex.com"][Math.floor(Math.random()*3)];
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -149,6 +231,12 @@ var projects = {
 
 
 
+
+
+
+
+
+
 var education = {
 	"schools": [
 	   {"name": "James Madison University",
@@ -165,7 +253,6 @@ var education = {
 		"dates": 2007,
 		"url": "http://www.virginia.edu/"}
 	],
-	
 	"onlineCourses": [
 	   {"title": "JavaScript Syntax",
 		"school": "Udacity",

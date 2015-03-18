@@ -1,17 +1,19 @@
+ /* The <body><header> is populated by a grid comprising three "bio-box"es, each 
+ * of which is a flex-box. Wide screens display them beside one another. At 800px 
+ * and below the contact box is pushed under the other two. At 500px and below 
+ * the contact box and skill <select> box disappear.
+ */
 var HTMLbioGrid = '<div class="bio-box-1 flex-box"></div>'+
                   '<div class="bio-box-2 flex-box"></div>'+
                   '<div class="bio-box-3 flex-box"></div>';
-
-/* The contents of bio-box-1 */
-var HTMLbioPic = '<img src="%data-img%" class="bio-pic color-2">';
-
-/* The contents of bio-box-2 */
+// The contents of bio-box-1
+var HTMLbioPic = '<img src="%data-img%" class="bio-pic">';
+// The contents of bio-box-2
 var HTMLheaderName = '<h1 id="name" class="color-1">%data-name%</h1>';
 var HTMLwelcomeMsg = '<p class="bio-msg color-2">%data-msg% ';
-var HTMLroleSelect = '<select id="skillSelector"></select></p>';
+var HTMLroleSelect = '<select id="skillSelector" onchange=></select></p>';
 var HTMLskillOption = '<option value="%data-skill%">%data-name%</option>';
-
-/* The contents of bio-box-3 */
+// The contents of bio-box-3
 var HTMLcontactList = '<ul id="contactList"></ul>'
 var HTMLcontactEntry = '<li><span class="color-2">%data-type%</span>'+
                        '<span class="color-1 text-bold">%data-value%</span></li>';
@@ -22,26 +24,37 @@ var HTMLcontactEntry = '<li><span class="color-2">%data-type%</span>'+
 
 
 
+/* The WORK items don't depart too significantly from those forked from the Udacity
+ * resume repo.
+ */ 
 var HTMLworkHeading ='<ul id="workList"></ul>'
-var HTMLworkStart = '<li class="work-entry"></li>';
+var HTMLworkStart = '<li class="work-entry %data-worktype%"></li>';
 var HTMLworkEmployer = '<h4><a href="%data-url%" target="_blank">%data-job%</a>';
 var HTMLworkTitle = ' -- %data-title%</h4>';
-var HTMLworkLocation = '<div class="detail-text">%data-loc%</div>';
-var HTMLworkDates = '<div class="detail-text detail-text-2">%data-dates%</div>';
+var HTMLworkLocation = '<div class="detail-text detail-text-2">%data-loc%</div>';
+var HTMLworkDates = '<div class="detail-text">%data-dates%</div>';
 var HTMLworkDesc = '<p>%data-desc%</p>';
 
 
 
-// For accordion implemenation reference: http://jqueryui.com/accordion/#default
+
+
+
+
+
+
+ /* The PROJECTS are displayed in a jQuery accordion @ min-width:500px and above.
+  * At lower widths the projects are displayed without screenshots in the 
+  * projSimple list item.
+  * For accordion implemenation reference: http://jqueryui.com/accordion/#default
+  */
 var HTMLprojectAccordion = '<ul id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist"></ul>';
 var HTMLprojectSimple = '<ul id="projSimple"></ul>';
 
-
-
 var HTMLprojectStart = '<li class="project-entry">%data%</li>';
-var HTMLprojectTitle = '<h4>%data-name%</h4>';
+var HTMLprojectTitle = '<h4><a href="%data-url%" target="_blank">%data-name%</a></h4>';
 var HTMLprojectDesc = '<div class="detail-text"><p>%data-desc%</p><div class="pic-box flex-box"></div></div>';
-var HTMLprojectImage = '<a href="%data-url%"><img src="%data-img%" class="proj-pic" alt="A project screenshot"></a>';
+var HTMLprojectImage = '<a href="%data-url%" target="_blank"><img src="%data-img%" class="proj-pic" alt="A project screenshot"></a>';
 
 
 
@@ -49,17 +62,15 @@ var HTMLprojectImage = '<a href="%data-url%"><img src="%data-img%" class="proj-p
 
 
 
-
+/* The SCHOOL and ONLINE items don't depart too radically from those forked from the 
+ * Udacity resume repo.
+ */
 var HTMLschoolHeading = '<h3>Schools Attended</h3><ul id="schoolList"></ul>'
 var HTMLschoolStart = '<li class="education-entry"></li>';
 var HTMLschoolName = '<h4><a href="%data-url%" target="_blank">%data-name%</a>';
 var HTMLschoolDegreeMajor = ' -- %data-degree% -- <em>%data-major% major</em></h4>';
-var HTMLschoolLocation = '<div class="detail-text">%data-loc%</div>';
+var HTMLschoolLocation = '<div class="detail-text detail-text-2">%data-loc%</div>';
 var HTMLschoolDates = '<div class="detail-text">Completed -- %data-date%</div>';
-
-
-
-
 
 
 var HTMLonlineHeading = '<h3>Online Classes</h3><ul id="onlineList"></ul>'
@@ -70,11 +81,27 @@ var HTMLonlineDates = '<div class="detail-text">Completed -- %data-date%</div>';
 
 
 
+
+
+
+
+
+ /* This div is necessary for the interactive Google map. Yay APIs!
+  */
 var HTMLmapDiv = '<div id="map"></div>';
 
 
 
 
+
+
+
+
+
+/* The SOCIAL icons - though displayed in the page <footer> - are actually 
+ * derived from the "bio" object, whose other content and functions all deal 
+ * with <header> content.
+ */
 var HTMLsocialHeading = '<ul id="footerSocial" class="flex-box"></ul>'
 var HTMLsocialIcon = '<li><a href="%data-url%"><img class="social-token" src="./images/social/%data-type%.png"></a></li>'
 
@@ -83,7 +110,14 @@ var HTMLsocialIcon = '<li><a href="%data-url%"><img class="social-token" src="./
 
 
 
-// This function collects an array of user's click locations and displays them to console
+
+
+
+
+
+/* This function collects an array of user's click locations and displays them to console.
+ * Why, you ask? It saves Big Brother a little bit of effort.
+ */
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -99,6 +133,15 @@ $(document).click(function(loc) {
 
 
 
+
+
+
+
+
+/* This function helps the accordion do what it does. I'm not entirely sure how. 
+ * TODO: Figure out how this does what it does.
+ * TODO: Figure out what it does.
+ */
 $(function() {
   var icons = {header: "ui-icon-circle-arrow-e", activeHeader: "ui-icon-circle-arrow-s"};
   $('#accordion').accordion({icons: icons})
@@ -107,7 +150,38 @@ $(function() {
 
 
 
-var catnap = function() {console.log("Yay!")};
+
+
+
+
+
+
+
+
+
+
+
+
+var reDisplayJobs = function() {
+  var current = "."+bio.skills[$('#skillSelector').prop('value')];
+  if (current == ".work-all"){
+    $('.work-entry').css({"display":"block"});
+    $('.work-web').css({"display":"none"});
+  } else {
+    $('.work-entry').css({"display":"none"});
+    $(current).css({"display":"block"});
+  }
+};
+
+
+
+
+
+
+
+
+
+
 
 
 

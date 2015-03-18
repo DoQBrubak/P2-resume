@@ -164,6 +164,9 @@ ul {
   font-weight:bold;
 }
 
+.work-web {
+  display: none;
+}
 
 
 
@@ -207,16 +210,20 @@ ul {
 
 @media only screen and (max-width: 500px) {
   h2 {
+    border-top: #7AC143 solid 2px;
     font-size: 20px;
-    padding: 6px;
+    padding: 5px;
+    padding-left: 5%;
   }
   h3 {
     font-size: 18px;
-    padding: 6px;
+    padding: 5px;
+    padding-left: 5%;
   }
   h4 {
+    border-top: #CBB677 solid 1px;
     font-size: 16px;
-    padding: 6px;
+    padding: 5px;
   }
   p {
     font-size: 14px;
@@ -237,9 +244,8 @@ ul {
   .bio-box-3 {
     display: none;
   }
-  .pic-box {
+  .ghost-box {
     display: none;
-    height: 220px;
   }
   .social-token {
     width: 35px;
@@ -252,7 +258,6 @@ ul {
     height:180px;
     width: 90%;
   }
-  
   #socialH2 {
     display: none;
   }
