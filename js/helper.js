@@ -33,12 +33,20 @@ var HTMLworkDesc = '<p>%data-desc%</p>';
 
 
 // For accordion implemenation reference: http://jqueryui.com/accordion/#default
-var HTMLprojectHeading = '<ul id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist"></ul>'
-var HTMLprojectStart = '<li class="project-entry"></li>';
-var HTMLprojectTitle = '<h4><a href="data-url">%data-name%</a></h4>';
-var HTMLprojectData = '<div class="detail-text">%data-date%</div>';
-var HTMLprojectDesc = '<div class="detail-text-2"><p><br>%data-desc%</p><div class="pic-box flex-box"></div></div>';
-var HTMLprojectImage = '<img src="%data-img%" class="proj-pic" alt="A project screenshot">';
+var HTMLprojectAccordion = '<ul id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist"></ul>';
+var HTMLprojectSimple = '<ul id="projSimple"></ul>';
+
+
+
+var HTMLprojectStart = '<li class="project-entry">%data%</li>';
+var HTMLprojectTitle = '<h4>%data-name%</h4>';
+var HTMLprojectDesc = '<div class="detail-text"><p>%data-desc%</p><div class="pic-box flex-box"></div></div>';
+var HTMLprojectImage = '<a href="%data-url%"><img src="%data-img%" class="proj-pic" alt="A project screenshot"></a>';
+
+
+
+
+
 
 
 
@@ -48,6 +56,9 @@ var HTMLschoolName = '<h4><a href="%data-url%" target="_blank">%data-name%</a>';
 var HTMLschoolDegreeMajor = ' -- %data-degree% -- <em>%data-major% major</em></h4>';
 var HTMLschoolLocation = '<div class="detail-text">%data-loc%</div>';
 var HTMLschoolDates = '<div class="detail-text">Completed -- %data-date%</div>';
+
+
+
 
 
 

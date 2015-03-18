@@ -2,10 +2,8 @@
 bio.display = function() {
 	$('header').prepend(HTMLbioGrid); //Establish the header structure
 	
-
 	var formattedBioPic = HTMLbioPic.replace("%data-img%", this.biopic);
 	$('.bio-box-1').append(formattedBioPic);
-
 
 	// Insert the main column name and the (empty) skill selector.
 	var formattedName = HTMLheaderName.replace("%data-name%", this.name);
@@ -13,17 +11,13 @@ bio.display = function() {
 	var formattedHeaderContent = formattedName + formattedWelcomeMsg + HTMLroleSelect;
 	$('.bio-box-2').append(formattedHeaderContent);
 	
-	
 	this.skills.display(); //These go in bio-box-2
 	this.contacts.display(); //These go in bio-box-3
 	this.social.display(); //These actually appear in the page Footer
 };
 
-
-
 bio.contacts.display = function() {
 	$('.bio-box-3').append(HTMLcontactList);
-	// I referenced StackOverflow regarding finding object length: http://stackoverflow.com/questions/5223/length-of-a-javascript-object-that-is-associative-array
 	var keys = Object.keys(this);
 	for (var i = 0; i <  keys.length - 1; i++) {
 		var entryType = keys[i];
@@ -31,18 +25,12 @@ bio.contacts.display = function() {
 		var formattedEntry = HTMLcontactEntry.replace("%data-type%", entryType + ": ").replace("%data-value%", entryValue);
 		$('#contactList').append(formattedEntry);
 }};
-
-
-/* bio.skills is derived here from bio.skillCodes rather than included originally in the JSON
-	because the latter maps class codes necessary for the skill <select> interactivity */
 bio.skills.display = function() {
-	var skills = Object.keys(this);
-	for (var i=0; i<skills.length; i++) {
+	var skills = Object.keys(this).slice(0,this.length);
+	for (var i=0; i<skills.length-1; i++) {
 		formattedSkillOption = HTMLskillOption.replace("%data-skill%", skills[i]).replace("%data-name%", skills[i]);
 		$('#skillSelector').append(formattedSkillOption);
-	}
-}
-
+}};
 bio.social.display = function() {
 	var keys = Object.keys(this);
 	$('footer').append(HTMLsocialHeading);
@@ -61,14 +49,13 @@ bio.social.display = function() {
 
 
 
-work.display = function(){this.jobs.display()};
+work.display = function(){
+	this.jobs.display()
+};
 work.jobs.display = function() {
 	if (this.length > 0) {
 		for (var i = 0; i < this.length; i ++) {
     	$('#workSection').append(HTMLworkStart);
-    //For some reason for (i in this) {
-    //displays an extra, "undefined undefined" entry.
-    // http://stackoverflow.com/questions/3010840/loop-through-array-in-javascript
 		var formattedWorkEmployer = HTMLworkEmployer.replace("%data-job%", this[i].employer).replace("%data-url%", this[i].url);
 		var formattedWorkTitle = HTMLworkTitle.replace("%data-title%", this[i].title);
 		var formattedWorkLocation = HTMLworkLocation.replace("%data-loc%", this[i].location);
@@ -91,24 +78,28 @@ work.jobs.display = function() {
 
 
 
-projects.display = function(){this.projects.display()};
+
+
+projects.display = function(){
+	this.projects.display()
+};
 projects.projects.display = function (){
 	if (this.length > 0) {
-		$('#projSection').append(HTMLprojectHeading);
+		$('#projSection').append(HTMLprojectAccordion);
+		$('#projSection').append(HTMLprojectSimple)
 		for (var i = 0; i < this.length; i++) {
-			$('#accordion').append(HTMLprojectStart); 
-			// formate the stock HTML with JSON data
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data-name%", this[i].title);
 			var formattedProjectDesc = HTMLprojectDesc.replace("%data-desc%", this[i].description);
-			var formattedProjectEntry = formattedProjectTitle + formattedProjectDesc;
-			$('.project-entry:last').append(formattedProjectEntry)
-      		// iterate to add pretty pictures
+			var formattedProjectData = formattedProjectTitle + formattedProjectDesc;
+			var formattedProjectEntry = HTMLprojectStart.replace("%data%", formattedProjectData);
+			$('#accordion').append(formattedProjectEntry);
+
       		if (this[i].images.length > 0) {
         		for (var j = 0; j < this[i].images.length; j++) {
-          			formattedImageLink = HTMLprojectImage.replace("%data-img%", this[i].images[j])
+          			formattedImageLink = HTMLprojectImage.replace("%data-img%", this[i].images[j]).replace("%data-url%", this[i].url);
         			$('.pic-box:last').append(formattedImageLink);
+        	//$('#projSimple').append(formattedProjectEntry);
 }}}}};
-
 
 
 
@@ -166,28 +157,5 @@ projects.display();
 education.display();
 $("#mapSection").append(HTMLmapDiv);
 $('#skillSelector').change(catnap);
-
-
-
-
-
-
-
-/* The internationalize function is left here only in case I want inspiration later
-function inName() {
-    var nameString = bio.name;
-    var nameArray = nameString.split(" ");
-    nameArray[0] = nameArray[0][0].toUpperCase()
-               + nameArray[0].substring(1).toLowerCase();
-               //could also have used String.slice() here
-               //http://stackoverflow.com/questions/2243824/what-is-the-difference-between-string-slice-and-string-substring
-    nameArray[1] = nameArray[1].toUpperCase();
-    var resultName = nameArray[0] + " " + nameArray[1];
-    formattedName = HTMLheaderName.replace("%data%", resultName);
-    $("#name").replaceWith(formattedName)
-};
-*/
-
-
 
 

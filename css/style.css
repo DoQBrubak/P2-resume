@@ -151,7 +151,7 @@ ul {
 }
 
 .pic-box {
-  height: 220px;
+  height: 200px;
 }
 
 .proj-pic {
@@ -186,16 +186,22 @@ ul {
   padding-bottom:10px;
 }
 
-@media only screen and (max-width: 1024px) {
-  #letsConnect {
-    margin-top: 5%;
+@media only screen and (max-width: 700px) {
+  .pic-box {
+    height: 120px;
+  }
+  .proj-pic {
+    height: 100px;
+    width: 150px;
   }
 }
-
 
 @media only screen and (min-width: 500px) {
   .bio-box-2 {
     height: 166px;
+  }
+  #projSimple {
+    display:none;
   }
 }
 
@@ -231,14 +237,22 @@ ul {
   .bio-box-3 {
     display: none;
   }
+  .pic-box {
+    display: none;
+    height: 220px;
+  }
   .social-token {
     width: 35px;
     height: 35px;
+  }
+  #accordion {
+    display: none;
   }
   #map {
     height:180px;
     width: 90%;
   }
+  
   #socialH2 {
     display: none;
   }

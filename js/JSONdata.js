@@ -87,7 +87,7 @@ var work = {
 		"location": "Gardiner, MT, USA",
 		"dates": "May 2007 - August 2007",
 		"description": "Served drinks in a smoke-filled family-owned biker bar.",
-		"url": "http://m.yelp.com/biz/town-cafe-motel-lounge-and-gift-shop-gardiner",
+		"url": "http://www.yelp.com/biz/town-cafe-motel-lounge-and-gift-shop-gardiner",
 		"type": "work-bev"},
 
 	   {"employer": "University Transit Service",
