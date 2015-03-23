@@ -141,7 +141,7 @@ var work = {
 		"dates": "April 2008 - October 2008",
 		"description": "Poured libations and served tables at the \"company store\", for "+
 			"river rafters and tourists alike",
-		"url": "http://www.aceraft.com/when-you-book2/grub",
+		"url": "http://ace-adventure-resort.myshopify.com/collections/dining/products/lost-paddle-bar-and-grill",
 		"type": "work-bev"},
 
 	   {"employer": "Montana Whitewater",
