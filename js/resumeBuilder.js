@@ -1,6 +1,6 @@
 // Display everything from the JSON "bio" object
 bio.display = function() {
-	$('header').prepend(HTMLbioGrid); //Establish the header structure
+	$('header').prepend(HTMLbioGrid); // Establish the header structure
 	
 	var formattedBioPic = HTMLbioPic.replace("%data-img%", this.biopic);
 	$('.bio-box-1').append(formattedBioPic);
@@ -11,10 +11,10 @@ bio.display = function() {
 	var formattedHeaderContent = formattedName + formattedWelcomeMsg + HTMLroleSelect;
 	$('.bio-box-2').append(formattedHeaderContent);
 	
-	this.skills.display(); //These go in bio-box-2
-	this.contacts.display(); //These go in bio-box-3
-	this.social.display(); //These actually appear in the page Footer
-};
+	this.skills.display(); // These go in bio-box-2
+	this.contacts.display(); // These go in bio-box-3
+	this.social.display(); // These actually appear in the page Footer
+}
 
 bio.contacts.display = function() {
 	$('.bio-box-3').append(HTMLcontactList);
@@ -24,13 +24,13 @@ bio.contacts.display = function() {
 		var entryValue = this[keys[i]];
 		var formattedEntry = HTMLcontactEntry.replace("%data-type%", entryType + ": ").replace("%data-value%", entryValue);
 		$('#contactList').append(formattedEntry);
-}};
+}}
 bio.skills.display = function() {
 	var skills = Object.keys(this).slice(0,this.length);
 	for (var i=0; i<skills.length-1; i++) {
 		formattedSkillOption = HTMLskillOption.replace("%data-skill%", skills[i]).replace("%data-name%", skills[i]);
 		$('#skillSelector').append(formattedSkillOption);
-}};
+}}
 bio.social.display = function() {
 	var keys = Object.keys(this);
 	$('footer').append(HTMLsocialHeading);
@@ -39,7 +39,8 @@ bio.social.display = function() {
 		var socialIconURL = this[keys[i]];
 		formattedSocialIcon = HTMLsocialIcon.replace("%data-type%", socialIconValue).replace("%data-url%", socialIconURL);
 		$('#footerSocial').append(formattedSocialIcon);
-}};
+}}
+
 
 
 
@@ -50,8 +51,8 @@ bio.social.display = function() {
 
 
 work.display = function(){
-	this.jobs.display()
-};
+	this.jobs.display();
+}
 work.jobs.display = function() {
 	if (this.length > 0) {
 		for (var i = 0; i < this.length; i ++) {
@@ -66,11 +67,7 @@ work.jobs.display = function() {
 		var formattedWorkEntry = formattedWorkEmployer + formattedWorkTitle + formattedWorkLocation + formattedWorkDates + formattedWorkDesc;
 		// Append i'th work entry object after previous entry
 		$('.work-entry:last').append(formattedWorkEntry);
-}}};
-
-
-
-
+}}}
 
 
 
@@ -82,33 +79,37 @@ work.jobs.display = function() {
 
 
 projects.display = function(){
-	this.projects.display()
-};
+	this.projects.display();
+}
+/* The projects are each rendered twice within the DOM, once within the accordion
+ * that only display on wider screens, and once just without the accordion.
+ * The latter are styled only to display at smaller screens.
+ */
 projects.projects.display = function (){
 	if (this.length > 0) {
+		// Two sections created in the DOM.
 		$('#projSection').append(HTMLprojectAccordion);
 		$('#projSection').append(HTMLprojectSimple)
+		// The accordion gets populated...
 		for (var i = 0; i < this.length; i++) {
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data-name%", this[i].title).replace("%data-url%", this[i].url);
 			var formattedProjectDesc = HTMLprojectDesc.replace("%data-desc%", this[i].description);
 			var formattedProjectData = formattedProjectTitle + formattedProjectDesc;
 			var formattedProjectEntry = HTMLprojectStart.replace("%data%", formattedProjectData);
 			$('#accordion').append(formattedProjectEntry);
-
       		if (this[i].images.length > 0) {
         		for (var j = 0; j < this[i].images.length; j++) {
           			var formattedImageLink = HTMLprojectImage.replace("%data-img%", this[i].images[j]).replace("%data-url%", this[i].url);
         			$('.pic-box:last').append(formattedImageLink);
-        	};
+        	}
         	/* Replacing the pic-box class label with ghost-box accomplishes two things. It prevents 
         	 * the aQ selector just above from losing track of where the screenshots actually belong 
         	 * (in the projectAccordion but not in the projectSimple). And the ghost-box style class 
         	 * disappears (via display: none in style.css) when screen width < 500. Boo!
         	 */
-        	var formattedProjectEntry = formattedProjectEntry.replace("pic-box flex-box", "ghost-box");
-        	$('#projSimple').append(formattedProjectEntry);
+        	var simpleFormatProjectEntry = formattedProjectEntry.replace("pic-box flex-box", "ghost-box");
+        	$('#projSimple').append(simpleFormatProjectEntry);
 }}}};
-
 
 
 
@@ -122,7 +123,7 @@ projects.projects.display = function (){
 education.display = function() {
 	this.schools.display();
 	this.onlineCourses.display();
-};
+}
 education.schools.display = function (){
 	if (this.length > 0) {
 		$('#eduSection').append(HTMLschoolHeading);
@@ -136,7 +137,7 @@ education.schools.display = function (){
 			var formattedSchoolEntry = formattedSchoolName + formattedSchoolDegreeMajor + formattedSchoolLocation + formattedSchoolDates;
 			// Append i'th entry object after previous entry
 			$('.education-entry:last').append(formattedSchoolEntry);
-}}};
+}}}
 education.onlineCourses.display = function (){
 	if (this.length > 0) {
 		$('#eduSection').append(HTMLonlineHeading);
@@ -149,7 +150,9 @@ education.onlineCourses.display = function (){
 			var formattedOnlineEntry = formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates;
 			// Append i'th entry object after previous entry
 			$('.education-entry:last').append(formattedOnlineEntry);
-}}};
+}}}
+
+
 
 
 
@@ -165,3 +168,5 @@ projects.display();
 education.display();
 $('#mapSection').append(HTMLmapDiv);
 $('#skillSelector').change(reDisplayJobs);
+
+

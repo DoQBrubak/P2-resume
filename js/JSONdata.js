@@ -31,16 +31,8 @@ var bio = {
 bio.skillCategories = [];
 for(key in bio.skills) {
 	if (typeof(bio.skills[key])=="string"){
-		bio.skillCategories.push(bio.skills[key])
-}};
-
-
-
-
-
-
-
-
+		bio.skillCategories.push(bio.skills[key]);
+}}
 
 
 
@@ -181,12 +173,6 @@ work.jobs[0].url = ["www.uber.com", "www.teslamotors.com","www.spacex.com"][Math
 
 
 
-
-
-
-
-
-
 var projects = {
 	"projects": [
 	   {"title": "Wintergreen Fire and Rescue website redesign",
@@ -236,7 +222,6 @@ var projects = {
 
 
 
-
 var education = {
 	"schools": [
 	   {"name": "James Madison University",
@@ -265,3 +250,4 @@ var education = {
 		"url": "https://www.coursera.org/course/interactivepython"}
 	]
 };
+
