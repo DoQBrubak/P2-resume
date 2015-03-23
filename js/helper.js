@@ -234,15 +234,15 @@ about a single location.
     // Define a custom marker image. Refer:
     // https://developers.google.com/maps/documentation/javascript/examples/icon-complex
     var image = {
-      url: "images/icons/book-24.png", // http://www.iconsdb.com/orange-icons/sail-boat-icon.html
-      size: new google.maps.Size(24, 24),
+      url: "images/pushpin-med.png", // http://www.iconsdb.com/orange-icons/sail-boat-icon.html
+      size: new google.maps.Size(32, 32),
       origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(12, 12)
+      anchor: new google.maps.Point(16, 32)
     };
 
     // Define the polygon coordinates on the custom marker image that are clickable
     var shape = {
-      coords: [4,4,4,20,20,20,20,4],
+      coords: [8,1,24,1,24,31,8,31],
       type: 'poly'
     };
 
@@ -314,3 +314,6 @@ google.maps.event.addDomListener(window, 'load', initializeMap);  // Google docu
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
 window.addEventListener('resize', function(e) {map.fitBounds(mapBounds)});
+
+
+

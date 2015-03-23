@@ -55,7 +55,7 @@ var work = {
 	"jobs": [
 	   {"employer": "YOUR COMPANY NAME HERE",
 		"title": "Futuristic web guy",
-		"location": "Corporate Headquarters",
+		"location": "Winchester, VA, USA",
 		"dates": "The near future - The distant future",
 		"description": "I will work long hours, bringing your shareholders great "+
 			"ROI. I will eat your catered lunches, supporting local service "+

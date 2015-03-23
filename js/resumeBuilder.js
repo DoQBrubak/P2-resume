@@ -163,5 +163,5 @@ bio.display();
 work.display();
 projects.display();
 education.display();
-$("#mapSection").append(HTMLmapDiv);
+$('#mapSection').append(HTMLmapDiv);
 $('#skillSelector').change(reDisplayJobs);
